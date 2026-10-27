@@ -1,300 +1,334 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-<link rel="manifest" href="manifest.json?v=2">
-<meta name="theme-color" content="#004d40">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Махачкалинская Тарелка Здоровья 64+</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+<meta name="theme-color" content="#004d40">
+<link rel="manifest" href="manifest.json?v=3">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Тарелка Здоровья 64+ (Махачкала)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --veg-color: #2e7d32;
+  --veg-color: #1b5e20;
   --veg-bg: #e8f5e9;
-  --prot-color: #c62828;
+  --veg-border: #a5d6a7;
+  --prot-color: #b71c1c;
   --prot-bg: #ffebee;
-  --carb-color: #ef6c00;
+  --prot-border: #ef9a9a;
+  --carb-color: #e65100;
   --carb-bg: #fff3e0;
-  --fat-color: #f9a825;
+  --carb-border: #ffcc80;
+  --fat-color: #f57f17;
   --fat-bg: #fffde7;
-  --text-main: #1f2937;
-  --text-muted: #6b7280;
-  --bg-sand: #fdfbf7;
+  --fat-border: #fff59d;
+  --text-main: #111827;
+  --text-muted: #4b5563;
+  --bg-sand: #f8fafc;
   --card-bg: #ffffff;
-  --accent-dagestan: #00897b;
-  --accent-dagestan-light: #e0f2f1;
-  --border-light: #e5e7eb;
+  --accent: #00695c;
+  --accent-light: #e0f2f1;
+  --border-light: #cbd5e1;
 }
 
-* {
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  width: 100%;
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-sand);
+  color: var(--text-main);
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background-color: var(--bg-sand);
-  color: var(--text-main);
-  line-height: 1.5;
-  padding-bottom: 70px;
+  padding-bottom: 110px;
 }
 
+/* HEADER */
 header {
-  background: linear-gradient(135deg, #004d40 0%, #00796b 100%);
-  color: white;
-  padding: 1.5rem 1rem 1.25rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: linear-gradient(135deg, #004d40 0%, #00695c 100%);
+  color: #ffffff;
+  padding: 18px 16px;
+  width: 100%;
 }
 
-.header-container {
-  max-width: 1200px;
+.header-inner {
+  max-width: 1140px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
 }
 
 .brand-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(8px);
-  padding: 4px 12px;
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.18);
+  padding: 5px 12px;
   border-radius: 999px;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  width: fit-content;
+  font-size: 0.82rem;
+  font-weight: 700;
+  margin-bottom: 8px;
 }
 
 h1 {
-  font-family: 'Playfair Display', Georgia, serif;
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.25;
+  margin-bottom: 6px;
 }
 
 .subtitle {
-  font-size: 0.9rem;
-  opacity: 0.9;
-  max-width: 700px;
+  font-size: 0.95rem;
+  opacity: 0.95;
+  line-height: 1.4;
 }
 
-/* Tab Navigation */
+/* NAVIGATION TABS (Крупные кнопки на весь экран) */
 .nav-tabs {
-  max-width: 1200px;
-  margin: 1rem auto 0;
-  padding: 0 1rem;
-  display: flex;
-  gap: 0.5rem;
-  border-bottom: 2px solid #e2e8f0;
+  max-width: 1140px;
+  margin: 0 auto;
+  background: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 2px solid var(--border-light);
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
 .tab-btn {
   background: none;
   border: none;
-  padding: 0.75rem 1.25rem;
-  font-weight: 600;
-  font-size: 0.95rem;
+  padding: 12px 6px;
+  font-size: 0.92rem;
+  font-weight: 700;
   color: var(--text-muted);
   cursor: pointer;
-  border-bottom: 3px solid transparent;
-  margin-bottom: -2px;
-  transition: all 0.2s ease;
+  border-bottom: 4px solid transparent;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
+  justify-content: center;
+  gap: 4px;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.tab-btn .tab-icon {
+  font-size: 1.25rem;
 }
 
 .tab-btn.active {
-  color: var(--accent-dagestan);
-  border-bottom-color: var(--accent-dagestan);
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  background: #f0fdfa;
 }
 
-/* Main Layout */
+/* MAIN CONTAINER */
 .main-wrapper {
-  max-width: 1200px;
-  margin: 1.25rem auto;
-  padding: 0 1rem;
+  max-width: 1140px;
+  width: 100%;
+  margin: 14px auto;
+  padding: 0 12px;
 }
 
 .tab-content {
   display: none;
+  width: 100%;
 }
 .tab-content.active {
   display: block;
 }
 
-/* Constructor View Grid */
-.constructor-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+/* INFO BANNER */
+.info-banner {
+  background: #ecfdf5;
+  border: 1.5px solid #6ee7b7;
+  border-radius: 16px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
 }
 
-@media (min-width: 992px) {
+.info-banner-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #065f46;
+}
+
+.info-banner-body {
+  margin-top: 8px;
+  font-size: 0.95rem;
+  color: #064e3b;
+  line-height: 1.45;
+}
+
+/* LAYOUT GRID */
+.constructor-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  width: 100%;
+}
+
+@media (min-width: 960px) {
   .constructor-grid {
-    grid-template-columns: 460px 1fr;
+    grid-template-columns: 430px minmax(0, 1fr);
     align-items: start;
   }
 }
 
-/* Plate Interactive Visualizer Card */
-.sticky-card {
+.card-box {
   background: var(--card-bg);
   border-radius: 20px;
-  padding: 1.5rem;
+  padding: 16px;
   border: 1px solid var(--border-light);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  width: 100%;
 }
 
-@media (min-width: 992px) {
-  .sticky-card {
-    position: sticky;
-    top: 1rem;
-  }
-}
-
+/* PLATE HEADER */
 .plate-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 12px;
+  gap: 8px;
 }
 
 .plate-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-main);
+  font-size: 1.2rem;
+  font-weight: 800;
 }
 
 .clear-btn {
   background: #fee2e2;
-  color: #dc2626;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 8px;
-  font-size: 0.75rem;
-  font-weight: 600;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  font-weight: 700;
   cursor: pointer;
-  transition: background 0.2s;
 }
-.clear-btn:hover { background: #fecaca; }
+.clear-btn:active {
+  transform: scale(0.97);
+}
 
-/* SVG Plate */
+/* SVG PLATE */
 .plate-container {
-  position: relative;
   width: 100%;
-  max-width: 340px;
-  margin: 0 auto 1.25rem;
+  max-width: 310px;
+  margin: 0 auto 14px;
   aspect-ratio: 1;
 }
 
 .plate-svg {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 8px 16px rgba(0,0,0,0.06));
+  display: block;
 }
 
 .plate-slice {
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-  transform-origin: 170px 170px;
-}
-.plate-slice:hover {
-  opacity: 0.92;
-  transform: scale(1.02);
 }
 
-/* Nutrient Breakdown Bar & Protein Thermometer */
+/* PROTEIN THERMOMETER */
 .protein-spotlight {
   background: linear-gradient(135deg, #fff5f5 0%, #ffebee 100%);
-  border: 1.5px solid #ffcdd2;
-  border-radius: 14px;
-  padding: 1rem;
-  margin-bottom: 1.25rem;
+  border: 2px solid #ef9a9a;
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 16px;
 }
 
 .spotlight-top {
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
 }
 
 .spotlight-title {
-  font-size: 0.85rem;
-  font-weight: 700;
+  font-size: 1.02rem;
+  font-weight: 800;
   color: #b71c1c;
-  display: flex;
-  align-items: center;
-  gap: 6px;
 }
 
 .protein-number {
-  font-size: 1.4rem;
+  font-size: 1.55rem;
   font-weight: 800;
-  color: #c62828;
+  color: #b71c1c;
 }
 
 .protein-target {
-  font-size: 0.8rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .protein-progress-bar {
-  height: 10px;
+  height: 14px;
   background: #ffcdd2;
   border-radius: 999px;
   overflow: hidden;
-  position: relative;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .protein-progress-fill {
   height: 100%;
   width: 0%;
-  background: linear-gradient(90deg, #ef5350, #c62828);
+  background: linear-gradient(90deg, #e53935, #b71c1c);
   border-radius: 999px;
   transition: width 0.3s ease;
 }
 
 .protein-sources-subtext {
-  font-size: 0.78rem;
+  font-size: 0.9rem;
   color: #7f1d1d;
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
-/* Category Bars */
+/* PROGRESS BARS BY SECTOR */
 .section-bars {
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
-  margin-bottom: 1.25rem;
+  gap: 12px;
+  margin-bottom: 16px;
 }
 
 .bar-item {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 5px;
 }
 
 .bar-labels {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8rem;
-  font-weight: 600;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .bar-track {
-  height: 8px;
-  background: #f1f5f9;
+  height: 12px;
+  background: #e2e8f0;
   border-radius: 999px;
   overflow: hidden;
 }
@@ -304,584 +338,630 @@ h1 {
   border-radius: 999px;
   transition: width 0.3s ease;
 }
-
 .bar-fill.veg { background-color: var(--veg-color); }
 .bar-fill.prot { background-color: var(--prot-color); }
 .bar-fill.carb { background-color: var(--carb-color); }
 .bar-fill.fat { background-color: var(--fat-color); }
 
-/* Current Plate Items List */
+/* SELECTED ITEMS ON PLATE */
 .current-items-box {
-  border-top: 1px dashed var(--border-light);
-  padding-top: 1rem;
+  border-top: 2px dashed var(--border-light);
+  padding-top: 14px;
 }
 
 .items-title {
-  font-size: 0.85rem;
-  font-weight: 700;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text-main);
+  margin-bottom: 10px;
 }
 
 .selected-list {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  max-height: 200px;
-  overflow-y: auto;
-  padding-right: 4px;
+  gap: 8px;
 }
 
 .selected-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #f8fafc;
-  border-radius: 8px;
-  padding: 6px 10px;
-  font-size: 0.82rem;
-}
-
-.item-left {
-  display: flex;
-  flex-direction: column;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+  padding: 10px 12px;
+  gap: 10px;
 }
 
 .item-name {
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1rem;
   color: var(--text-main);
+  display: block;
 }
 
 .item-nutrients {
-  font-size: 0.72rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
+  font-weight: 600;
 }
 
 .remove-tag-btn {
-  background: none;
-  border: none;
-  color: #94a3b8;
-  font-size: 1rem;
+  background: #fee2e2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 800;
   cursor: pointer;
-  padding: 2px 6px;
-  line-height: 1;
-}
-.remove-tag-btn:hover { color: #ef4444; }
-
-/* Filter & Controls Panel */
-.catalog-card {
-  background: var(--card-bg);
-  border-radius: 20px;
-  padding: 1.5rem;
-  border: 1px solid var(--border-light);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04);
-}
-
-.filters-header {
+  flex-shrink: 0;
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+/* FILTERS (Крупные сетки без разъезжания экрана) */
+.filter-label {
+  font-size: 0.9rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+  display: block;
 }
 
 .season-selector {
-  display: flex;
-  align-items: center;
-  background: #f1f5f9;
-  padding: 4px;
-  border-radius: 12px;
-  gap: 4px;
-  overflow-x: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-bottom: 16px;
 }
 
 .season-btn {
-  flex: 1;
-  min-width: 80px;
-  border: none;
-  background: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-muted);
+  border: 1.5px solid var(--border-light);
+  background: #f8fafc;
+  padding: 12px 10px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-main);
   cursor: pointer;
   text-align: center;
-  white-space: nowrap;
-  transition: all 0.2s;
+  min-height: 48px;
+}
+
+.season-btn.full-width {
+  grid-column: 1 / -1;
 }
 
 .season-btn.active {
-  background: white;
-  color: var(--accent-dagestan);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
 }
 
 .category-chips {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 8px;
-  flex-wrap: wrap;
+  margin-bottom: 16px;
 }
 
 .cat-chip {
-  border: 1px solid var(--border-light);
-  background: white;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 0.82rem;
-  font-weight: 600;
+  border: 1.5px solid var(--border-light);
+  background: #ffffff;
+  padding: 12px 10px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  font-weight: 700;
   cursor: pointer;
-  color: var(--text-muted);
-  transition: all 0.2s;
+  color: var(--text-main);
+  text-align: center;
+  min-height: 48px;
+}
+
+.cat-chip.full-width {
+  grid-column: 1 / -1;
 }
 
 .cat-chip.active {
-  background: var(--accent-dagestan);
-  color: white;
-  border-color: var(--accent-dagestan);
+  background: #0f172a;
+  color: #ffffff;
+  border-color: #0f172a;
 }
 
-/* Products Grid */
+/* SEARCH INPUT */
+.search-box {
+  margin-bottom: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border: 2px solid var(--border-light);
+  border-radius: 14px;
+  background: #f8fafc;
+  font-weight: 600;
+  color: var(--text-main);
+}
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #ffffff;
+}
+
+/* PRODUCTS GRID */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 12px;
 }
 
+@media (min-width: 640px) {
+  .products-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 .prod-card {
-  background: white;
-  border: 1px solid var(--border-light);
-  border-radius: 14px;
-  padding: 12px 14px;
+  background: #ffffff;
+  border: 1.5px solid var(--border-light);
+  border-radius: 16px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 10px;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-  position: relative;
-}
-
-.prod-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.05);
-  border-color: #cbd5e1;
+  gap: 12px;
 }
 
 .prod-top {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 6px;
+  gap: 8px;
 }
 
 .prod-title {
-  font-size: 0.95rem;
-  font-weight: 700;
+  font-size: 1.12rem;
+  font-weight: 800;
   color: var(--text-main);
-  line-height: 1.25;
+  line-height: 1.3;
 }
 
 .badge-tag {
-  font-size: 0.68rem;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 4px 10px;
+  border-radius: 8px;
   text-transform: uppercase;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.badge-tag.veg { background: var(--veg-bg); color: var(--veg-color); }
-.badge-tag.prot { background: var(--prot-bg); color: var(--prot-color); }
-.badge-tag.carb { background: var(--carb-bg); color: var(--carb-color); }
-.badge-tag.fat { background: var(--fat-bg); color: #b78103; }
+.badge-tag.veg { background: var(--veg-bg); color: var(--veg-color); border: 1px solid var(--veg-border); }
+.badge-tag.prot { background: var(--prot-bg); color: var(--prot-color); border: 1px solid var(--prot-border); }
+.badge-tag.carb { background: var(--carb-bg); color: var(--carb-color); border: 1px solid var(--carb-border); }
+.badge-tag.fat { background: var(--fat-bg); color: #b45309; border: 1px solid var(--fat-border); }
 
 .prod-desc {
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   color: var(--text-muted);
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .prod-metric-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 8px;
   align-items: center;
 }
 
 .pill-portion {
-  background: #f1f5f9;
-  color: #334155;
-  font-size: 0.75rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 6px;
+  background: #e2e8f0;
+  color: #1e293b;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 5px 10px;
+  border-radius: 8px;
 }
 
 .pill-protein-bonus {
   background: #ffebee;
-  color: #c62828;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 6px;
+  color: #b71c1c;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 5px 10px;
+  border-radius: 8px;
   border: 1px solid #ffcdd2;
 }
 
 .pill-fat-bonus {
-  background: #fffde7;
-  color: #f57f17;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 2px 8px;
-  border-radius: 6px;
+  background: #fef3c7;
+  color: #b45309;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 5px 10px;
+  border-radius: 8px;
 }
 
 .add-prod-btn {
-  background: #f8fafc;
-  border: 1px solid #cbd5e1;
-  color: var(--text-main);
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.82rem;
-  font-weight: 600;
+  background: var(--accent);
+  border: none;
+  color: #ffffff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
   cursor: pointer;
+  width: 100%;
+  min-height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  transition: all 0.2s ease;
+  gap: 8px;
+  box-shadow: 0 2px 6px rgba(0, 105, 92, 0.25);
+}
+.add-prod-btn:active {
+  transform: scale(0.98);
+  background: #004d40;
 }
 
-.add-prod-btn:hover {
-  background: var(--accent-dagestan);
-  border-color: var(--accent-dagestan);
-  color: white;
-}
-
-/* Season Menus View */
+/* SEASONAL MENUS */
 .season-menus-container {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
 }
 
 @media (min-width: 768px) {
   .season-menus-container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
 .menu-card {
-  background: white;
-  border-radius: 16px;
-  border: 1px solid var(--border-light);
-  padding: 1.25rem;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 1.5px solid var(--border-light);
+  padding: 18px;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+  gap: 12px;
 }
 
 .menu-season-badge {
   display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 700;
-  padding: 3px 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  padding: 5px 12px;
   border-radius: 999px;
   width: fit-content;
+  background: var(--accent-light);
+  color: var(--accent);
 }
 
 .menu-title {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: var(--text-main);
+  font-size: 1.2rem;
+  font-weight: 800;
 }
 
 .menu-composition {
   list-style: none;
-  font-size: 0.85rem;
+  font-size: 0.98rem;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
 
-.menu-composition li {
-  display: flex;
-  align-items: flex-start;
-  gap: 6px;
-}
-
-.menu-composition li span {
+.menu-note {
+  font-size: 0.92rem;
   font-weight: 700;
+  color: #065f46;
+  background: #ecfdf5;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #a7f3d0;
 }
 
 .load-menu-btn {
-  margin-top: auto;
-  background: var(--accent-dagestan-light);
-  color: var(--accent-dagestan);
-  border: 1px solid var(--accent-dagestan);
-  padding: 8px 14px;
-  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 800;
+  cursor: pointer;
+  min-height: 50px;
+}
+
+/* STICKY BOTTOM MINI-BAR FOR MOBILE */
+.bottom-sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 14px;
+  z-index: 100;
+  box-shadow: 0 -4px 16px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.mini-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
   font-size: 0.85rem;
   font-weight: 700;
+}
+
+.mini-pill {
+  padding: 4px 8px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.12);
+}
+
+.mini-pill.prot-highlight {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.up-to-plate-btn {
+  background: #10b981;
+  color: #064e3b;
+  border: none;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.88rem;
+  font-weight: 800;
   cursor: pointer;
-  transition: all 0.2s;
-  text-align: center;
-}
-.load-menu-btn:hover {
-  background: var(--accent-dagestan);
-  color: white;
-}
-
-/* Explanation / Education Banner */
-.info-card {
-  background: #f0fdf4;
-  border: 1.5px solid #bbf7d0;
-  border-radius: 16px;
-  padding: 1.25rem;
-  margin-bottom: 1.5rem;
-}
-
-.info-card h3 {
-  font-size: 1rem;
-  color: #166534;
-  margin-bottom: 0.5rem;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.info-card p {
-  font-size: 0.85rem;
-  color: #14532d;
-  line-height: 1.5;
-}
-
-/* Modal for Palm Method */
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  padding: 1rem;
-}
-
-.modal-content {
-  background: white;
-  border-radius: 20px;
-  max-width: 500px;
-  width: 100%;
-  padding: 1.75rem;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="header-container">
+<header id="top-anchor">
+  <div class="header-inner">
     <div class="brand-badge">📍 Махачкала • Здоровье 64+ • Снижение веса</div>
-    <h1>Гарвардская Тарелка с Полным Балансом Белка</h1>
-    <p class="subtitle">Учет всех макронутриентов: белок из рыбы и мяса + вторичный белок из кавказской полбы, бобовых, семян и грецких орехов.</p>
+    <h1>Гарвардская Тарелка с Балансом Белка</h1>
+    <p class="subtitle">Крупный шрифт и точные порции: учёт белка из рыбы, мяса, творога + растительного белка из полбы, бобовых, урбеча и орехов.</p>
   </div>
 </header>
 
-<div class="nav-tabs">
-  <button class="tab-btn active" onclick="switchTab('constructor')">🥗 Конструктор тарелки</button>
-  <button class="tab-btn" onclick="switchTab('seasons')">🍂 12 сезонных рационов</button>
-  <button class="tab-btn" onclick="switchTab('guide')">📖 Памятка 64+ и метод ладони</button>
-</div>
+<nav class="nav-tabs">
+  <button class="tab-btn active" onclick="switchTab('constructor')">
+    <span class="tab-icon">🥗</span>
+    <span>Конструктор</span>
+  </button>
+  <button class="tab-btn" onclick="switchTab('seasons')">
+    <span class="tab-icon">🍲</span>
+    <span>12 рационов</span>
+  </button>
+  <button class="tab-btn" onclick="switchTab('guide')">
+    <span class="tab-icon">🖐️</span>
+    <span>Памятка 64+</span>
+  </button>
+</nav>
 
 <main class="main-wrapper">
 
-  <!-- TAB 1: CONSTRUCTOR -->
+  <!-- ВКЛАДКА 1: КОНСТРУКТОР -->
   <section id="constructor-tab" class="tab-content active">
-    
-    <div class="info-card">
-      <h3>💡 Почему грецкие орехи и злаки теперь добавляют белок?</h3>
-      <p>В стандартной тарелке орехи лежат в секторе <b>«Жиры»</b>, чтобы контролировать калорийность (15 г орехов = 100 ккал). Но в этих же 15 граммах содержится <b>+2.5 г качественного белка</b>! А в 120 г отварной полбы — еще <b>+5.5 г белка</b>. Конструктор ниже суммирует весь чистый белок, чтобы вы точно знали, набрана ли норма в 25–30 г для защиты мышц и костей.</p>
+
+    <div class="info-banner">
+      <div class="info-banner-header" onclick="toggleInfoBanner()">
+        <span>💡 Как учитывается белок из орехов и злаков?</span>
+        <span id="banner-arrow">▼</span>
+      </div>
+      <div class="info-banner-body" id="banner-body">
+        Орехи и урбеч лежат в секторе <b>«Жиры»</b> (чтобы не перебрать калории: 15 г орехов = 100 ккал). Но в этих 15 г орехов есть <b>+2.5 г белка</b>, а в порции полбы — ещё <b>+5.5 г белка</b>. Шкала <b>«Общий чистый белок»</b> ниже складывает весь белок со всей тарелки, чтобы набрать норму 25–30 г для сохранения мышц.
+      </div>
     </div>
 
     <div class="constructor-grid">
-      
-      <!-- LEFT STICKY: PLATE & NUTRIENT METERS -->
-      <div class="sticky-card">
+
+      <!-- БЛОК ТАРЕЛКИ -->
+      <div class="card-box" id="plate-card-anchor">
         <div class="plate-header">
           <div class="plate-title">Ваша тарелка (21 см)</div>
-          <button class="clear-btn" onclick="clearPlate()">Очистить всё</button>
+          <button class="clear-btn" onclick="clearPlate()">Очистить ✕</button>
         </div>
 
-        <!-- SVG Harvard Plate -->
         <div class="plate-container">
           <svg viewBox="0 0 340 340" class="plate-svg">
-            <!-- Plate base rim -->
-            <circle cx="170" cy="170" r="162" fill="#fafafa" stroke="#e2e8f0" stroke-width="5" />
-            <circle cx="170" cy="170" r="150" fill="#ffffff" stroke="#cbd5e1" stroke-width="2" />
+            <circle cx="170" cy="170" r="162" fill="#f8fafc" stroke="#cbd5e1" stroke-width="5" />
+            <circle cx="170" cy="170" r="150" fill="#ffffff" stroke="#94a3b8" stroke-width="2" />
             
-            <!-- Left Half: VEGETABLES 50% (Angle 90 to 270) -->
-            <path id="svg-veg-path" class="plate-slice" d="M 170 20 A 150 150 0 0 0 170 320 Z" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2" onclick="filterByCategory('veg')" />
+            <!-- Овощи 50% -->
+            <path class="plate-slice" d="M 170 20 A 150 150 0 0 0 170 320 Z" fill="#e8f5e9" stroke="#2e7d32" stroke-width="2.5" onclick="filterByCategory('veg')" />
+            <!-- Белок 25% -->
+            <path class="plate-slice" d="M 170 20 A 150 150 0 0 1 320 170 L 170 170 Z" fill="#ffebee" stroke="#c62828" stroke-width="2.5" onclick="filterByCategory('prot')" />
+            <!-- Злаки 25% -->
+            <path class="plate-slice" d="M 320 170 A 150 150 0 0 1 170 320 L 170 170 Z" fill="#fff3e0" stroke="#ef6c00" stroke-width="2.5" onclick="filterByCategory('carb')" />
+            <!-- Жиры в центре -->
+            <circle class="plate-slice" cx="170" cy="170" r="46" fill="#fffde7" stroke="#f57f17" stroke-width="3" onclick="filterByCategory('fat')" />
             
-            <!-- Top Right Quarter: PROTEIN 25% (Angle 270 to 0) -->
-            <path id="svg-prot-path" class="plate-slice" d="M 170 20 A 150 150 0 0 1 320 170 L 170 170 Z" fill="#ffebee" stroke="#c62828" stroke-width="2" onclick="filterByCategory('prot')" />
-            
-            <!-- Bottom Right Quarter: CARBS 25% (Angle 0 to 90) -->
-            <path id="svg-carb-path" class="plate-slice" d="M 320 170 A 150 150 0 0 1 170 320 L 170 170 Z" fill="#fff3e0" stroke="#ef6c00" stroke-width="2" onclick="filterByCategory('carb')" />
-            
-            <!-- Center Circle: HEALTHY FATS (Oils, Urbech, Nuts) -->
-            <circle id="svg-fat-circle" class="plate-slice" cx="170" cy="170" r="42" fill="#fffde7" stroke="#f9a825" stroke-width="2.5" onclick="filterByCategory('fat')" />
-            
-            <!-- Plate Text Labels -->
-            <text x="85" y="170" fill="#2e7d32" font-size="12" font-weight="700" text-anchor="middle">ОВОЩИ 50%</text>
-            <text x="85" y="188" fill="#4b5563" font-size="10" text-anchor="middle" id="svg-veg-grams">0 / 220 г</text>
+            <!-- Крупные надписи внутри тарелки -->
+            <text x="82" y="165" fill="#1b5e20" font-size="14" font-weight="800" text-anchor="middle">ОВОЩИ 50%</text>
+            <text x="82" y="186" fill="#111827" font-size="13" font-weight="700" text-anchor="middle" id="svg-veg-grams">0 / 220 г</text>
 
-            <text x="245" y="95" fill="#c62828" font-size="12" font-weight="700" text-anchor="middle">БЕЛОК 25%</text>
-            <text x="245" y="113" fill="#4b5563" font-size="10" text-anchor="middle" id="svg-prot-grams">0 / 130 г</text>
+            <text x="245" y="95" fill="#b71c1c" font-size="14" font-weight="800" text-anchor="middle">БЕЛОК 25%</text>
+            <text x="245" y="115" fill="#111827" font-size="13" font-weight="700" text-anchor="middle" id="svg-prot-grams">0 / 130 г</text>
 
-            <text x="245" y="245" fill="#ef6c00" font-size="12" font-weight="700" text-anchor="middle">ЗЛАКИ 25%</text>
-            <text x="245" y="263" fill="#4b5563" font-size="10" text-anchor="middle" id="svg-carb-grams">0 / 110 г</text>
+            <text x="245" y="242" fill="#e65100" font-size="14" font-weight="800" text-anchor="middle">ЗЛАКИ 25%</text>
+            <text x="245" y="262" fill="#111827" font-size="13" font-weight="700" text-anchor="middle" id="svg-carb-grams">0 / 110 г</text>
 
-            <text x="170" y="167" fill="#b78103" font-size="10" font-weight="800" text-anchor="middle">ЖИРЫ</text>
-            <text x="170" y="180" fill="#78350f" font-size="9" text-anchor="middle" id="svg-fat-grams">0 / 15 г</text>
+            <text x="170" y="166" fill="#b45309" font-size="12" font-weight="800" text-anchor="middle">ЖИРЫ</text>
+            <text x="170" y="182" fill="#111827" font-size="11" font-weight="700" text-anchor="middle" id="svg-fat-grams">0 / 15 г</text>
           </svg>
         </div>
 
-        <!-- PROTEIN THERMOMETER (CROSS-CATEGORY) -->
+        <!-- ТЕРМОМЕТР ОБЩЕГО БЕЛКА -->
         <div class="protein-spotlight">
           <div class="spotlight-top">
-            <div class="spotlight-title">
-              <span>🍗 Общий чистый белок</span>
-            </div>
+            <div class="spotlight-title">🍗 Общий чистый белок:</div>
             <div>
-              <span class="protein-number" id="total-protein-val">0</span>
-              <span class="protein-target"> / 28 г цель</span>
+              <span class="protein-number" id="total-protein-val">0.0</span>
+              <span class="protein-target"> / 28 г норма</span>
             </div>
           </div>
           <div class="protein-progress-bar">
             <div class="protein-progress-fill" id="protein-progress-bar-fill"></div>
           </div>
           <div class="protein-sources-subtext" id="protein-sources-breakdown">
-            Основной (мясо/рыба/творог): 0 г • Растительный (полба/орехи): 0 г
+            Из мяса/рыбы/творога: <b>0 г</b> • Из злаков/орехов/овощей: <b>0 г</b>
           </div>
         </div>
 
-        <!-- PROGRESS BARS BY VOLUME -->
+        <!-- ШКАЛЫ ВЕСА ПРОДУКТОВ -->
         <div class="section-bars">
           <div class="bar-item">
             <div class="bar-labels">
-              <span style="color: var(--veg-color);">Овощи и зелень</span>
-              <span id="veg-status-text">0 / 220 г</span>
+              <span style="color: var(--veg-color);">🥦 Овощи и зелень</span>
+              <span id="veg-status-text">0 / 220 г (0%)</span>
             </div>
             <div class="bar-track"><div id="veg-bar" class="bar-fill veg" style="width: 0%;"></div></div>
           </div>
 
           <div class="bar-item">
             <div class="bar-labels">
-              <span style="color: var(--prot-color);">Белковые продукты (вес порции)</span>
-              <span id="prot-status-text">0 / 130 г</span>
+              <span style="color: var(--prot-color);">🍗 Белковое блюдо (вес)</span>
+              <span id="prot-status-text">0 / 130 г (0%)</span>
             </div>
             <div class="bar-track"><div id="prot-bar" class="bar-fill prot" style="width: 0%;"></div></div>
           </div>
 
           <div class="bar-item">
             <div class="bar-labels">
-              <span style="color: var(--carb-color);">Сложные злаки (готовый вес)</span>
-              <span id="carb-status-text">0 / 110 г</span>
+              <span style="color: var(--carb-color);">🌾 Злаки и гарнир (вес)</span>
+              <span id="carb-status-text">0 / 110 г (0%)</span>
             </div>
             <div class="bar-track"><div id="carb-bar" class="bar-fill carb" style="width: 0%;"></div></div>
           </div>
 
           <div class="bar-item">
             <div class="bar-labels">
-              <span style="color: #b78103;">Полезные жиры (урбеч, орехи, масло)</span>
-              <span id="fat-status-text">0 / 15 г</span>
+              <span style="color: #b45309;">🌰 Жиры (орехи, урбеч, масло)</span>
+              <span id="fat-status-text">0 / 15 г (0%)</span>
             </div>
             <div class="bar-track"><div id="fat-bar" class="bar-fill fat" style="width: 0%;"></div></div>
           </div>
         </div>
 
-        <!-- Selected on plate -->
+        <!-- СПИСОК ТОГО, ЧТО В ТАРЕЛКЕ -->
         <div class="current-items-box">
-          <div class="items-title">На тарелке сейчас:</div>
+          <div class="items-title">Сейчас в тарелке:</div>
           <ul class="selected-list" id="plate-items-list">
-            <li style="color: var(--text-muted); font-size: 0.82rem; font-style: italic;">Нажмите на любой продукт справа, чтобы добавить его в тарелку</li>
+            <li style="color: var(--text-muted); font-size: 0.95rem;">Пока пусто — выберите продукты в списке ниже 👇</li>
           </ul>
         </div>
       </div>
 
-      <!-- RIGHT PANEL: CATALOG WITH 61 PRODUCTS & NUTRITIONAL BREAKDOWN -->
-      <div class="catalog-card">
-        <div class="filters-header">
-          <!-- Season Toggle -->
-          <div>
-            <label style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-muted); display: block; margin-bottom: 6px;">
-              Сезон в Махачкале (наибольшая выгода и свежесть):
-            </label>
-            <div class="season-selector">
-              <button class="season-btn active" onclick="setSeason('all', this)">Все сезоны</button>
-              <button class="season-btn" onclick="setSeason('autumn', this)">🍂 Осень (тыква, орехи)</button>
-              <button class="season-btn" onclick="setSeason('winter', this)">❄️ Зима (капуста, рыба)</button>
-              <button class="season-btn" onclick="setSeason('spring', this)">🌱 Весна (черемша, зелень)</button>
-              <button class="season-btn" onclick="setSeason('summer', this)">☀️ Лето (томаты, перец)</button>
-            </div>
-          </div>
-
-          <!-- Category Filter -->
-          <div class="category-chips">
-            <button class="cat-chip active" onclick="filterByCategory('all', this)">Все продукты (61)</button>
-            <button class="cat-chip" onclick="filterByCategory('veg', this)">🥦 Овощи и зелень</button>
-            <button class="cat-chip" onclick="filterByCategory('prot', this)">🍗 Белки (мясо, рыба, яйца)</button>
-            <button class="cat-chip" onclick="filterByCategory('carb', this)">🌾 Злаки и полба</button>
-            <button class="cat-chip" onclick="filterByCategory('fat', this)">🌰 Жиры, орехи и урбеч</button>
-          </div>
+      <!-- БЛОК КАТАЛОГА (61 ПРОДУКТ) -->
+      <div class="card-box">
+        <span class="filter-label">1. Выберите сезон (что выгоднее и свежее):</span>
+        <div class="season-selector">
+          <button class="season-btn full-width active" onclick="setSeason('all', this)">🔄 Все продукты круглый год (61)</button>
+          <button class="season-btn" onclick="setSeason('autumn', this)">🍂 Осень (тыква, орехи)</button>
+          <button class="season-btn" onclick="setSeason('winter', this)">❄️ Зима (капуста, рыба)</button>
+          <button class="season-btn" onclick="setSeason('spring', this)">🌱 Весна (черемша, травы)</button>
+          <button class="season-btn" onclick="setSeason('summer', this)">☀️ Лето (томаты, кабачки)</button>
         </div>
 
-        <!-- Products Grid -->
+        <span class="filter-label">2. Категория тарелки:</span>
+        <div class="category-chips">
+          <button class="cat-chip full-width active" onclick="filterByCategory('all', this)">Все категории сразу</button>
+          <button class="cat-chip" onclick="filterByCategory('veg', this)">🥦 Овощи и зелень (22)</button>
+          <button class="cat-chip" onclick="filterByCategory('prot', this)">🍗 Белки: рыба, мясо (16)</button>
+          <button class="cat-chip" onclick="filterByCategory('carb', this)">🌾 Злаки и полба (13)</button>
+          <button class="cat-chip" onclick="filterByCategory('fat', this)">🌰 Орехи, урбеч, масло (10)</button>
+        </div>
+
+        <div class="search-box">
+          <input type="text" id="search-input" class="search-input" placeholder="🔍 Поиск продукта (например: судак, полба, орех)..." oninput="renderProducts()">
+        </div>
+
         <div class="products-grid" id="products-container"></div>
       </div>
 
     </div>
   </section>
 
-  <!-- TAB 2: 12 SEASON MENUS -->
+  <!-- ВКЛАДКА 2: 12 ГОТОВЫХ МЕНЮ -->
   <section id="seasons-tab" class="tab-content">
-    <div style="margin-bottom: 1.5rem;">
-      <h2 style="font-size: 1.35rem; font-weight: 700;">12 готовых сбалансированных меню для Махачкалы</h2>
-      <p style="font-size: 0.88rem; color: var(--text-muted);">По 3 продуманных варианта на каждый сезон с учетом возраста 64 лет и сброса веса от 10 кг. Нажмите кнопку, чтобы загрузить блюдо в тарелку.</p>
+    <div class="card-box" style="margin-bottom: 16px;">
+      <h2 style="font-size: 1.35rem; font-weight: 800; margin-bottom: 6px;">12 готовых рационов для Махачкалы</h2>
+      <p style="font-size: 0.98rem; color: var(--text-muted);">По 3 готовых тарелки на каждый сезон для плавного сброса 10+ кг в 64 года. Нажмите зелёную кнопку на любой карточке, чтобы сразу загрузить продукты в тарелку.</p>
     </div>
     <div class="season-menus-container" id="menus-container"></div>
   </section>
 
-  <!-- TAB 3: GUIDE 64+ -->
+  <!-- ВКЛАДКА 3: ПАМЯТКА 64+ И МЕТОД ЛАДОНИ -->
   <section id="guide-tab" class="tab-content">
-    <div class="sticky-card" style="max-width: 800px; margin: 0 auto;">
-      <h2 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 1rem; color: #004d40;">
-        Медицинские акценты тарелки для женщины 64 лет при снижении веса
+    <div class="card-box" style="display: flex; flex-direction: column; gap: 16px;">
+      <h2 style="font-size: 1.35rem; font-weight: 800; color: #004d40;">
+        🖐️ Как отмерять порции без весов («Метод ладони»)
+      </h2>
+      <p style="font-size: 1rem; color: var(--text-muted);">Если под рукой нет кухонных весов, ориентируйтесь по собственной руке:</p>
+
+      <div style="display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px;">
+        <div style="background: var(--veg-bg); border: 1.5px solid var(--veg-border); padding: 14px; border-radius: 14px;">
+          <strong style="font-size: 1.08rem; color: var(--veg-color);">🥦 Овощи и зелень (200–250 г) = Две сложенные ладони</strong>
+          <p style="font-size: 0.95rem; margin-top: 4px;">Две полные горсти свежих или тушёных овощей (без картофеля) на обед и ужин.</p>
+        </div>
+
+        <div style="background: var(--prot-bg); border: 1.5px solid var(--prot-border); padding: 14px; border-radius: 14px;">
+          <strong style="font-size: 1.08rem; color: var(--prot-color);">🍗 Белок (120–140 г) = Ладонь без пальцев</strong>
+          <p style="font-size: 0.95rem; margin-top: 4px;">Кусок рыбы, птицы или постной говядины размером и толщиной с вашу ладонь (даёт ~25–28 г чистого белка).</p>
+        </div>
+
+        <div style="background: var(--carb-bg); border: 1.5px solid var(--carb-border); padding: 14px; border-radius: 14px;">
+          <strong style="font-size: 1.08rem; color: var(--carb-color);">🌾 Злаки и гарнир (100–120 г) = Один женский кулак</strong>
+          <p style="font-size: 0.95rem; margin-top: 4px;">3–4 столовые ложки готовой каши (полба, гречка, булгур) или 1 небольшая печёная картофелина.</p>
+        </div>
+
+        <div style="background: var(--fat-bg); border: 1.5px solid var(--fat-border); padding: 14px; border-radius: 14px;">
+          <strong style="font-size: 1.08rem; color: #b45309;">🌰 Жиры (10–15 г) = Фаланга большого пальца</strong>
+          <p style="font-size: 0.95rem; margin-top: 4px;">1 чайная ложка льняного урбеча без сахара, 1 столовая ложка масла в салат или 3–4 грецких ореха.</p>
+        </div>
+      </div>
+
+      <hr style="border: none; border-top: 2px dashed var(--border-light); margin: 8px 0;">
+
+      <h2 style="font-size: 1.35rem; font-weight: 800; color: #004d40;">
+        🩺 4 главных правила для возраста 64 лет (сброс 10+ кг)
       </h2>
 
-      <div style="display: flex; flex-direction: column; gap: 1.25rem; font-size: 0.92rem; line-height: 1.6;">
-        <div style="background: #f8fafc; border-left: 4px solid var(--accent-dagestan); padding: 1rem; border-radius: 8px;">
-          <h4 style="font-weight: 700; color: var(--text-main); margin-bottom: 4px;">1. Защита от саркопении (потери мышечной массы)</h4>
-          <p>При похудении в 60+ лет организм склонен терять не только жир, но и скелетные мышцы. Чтобы этого избежать, каждый основной прием пищи должен содержать **минимум 25–30 г чистого белка**. Белок из грецких орехов и полбы помогает добрать эту норму без лишней тяжести в желудке.</p>
+      <div style="font-size: 1rem; display: flex; flex-direction: column; gap: 12px;">
+        <div style="background: #f8fafc; border-left: 5px solid var(--accent); padding: 14px; border-radius: 10px;">
+          <strong>1. Защита мышц от слабости (саркопении)</strong>
+          <p style="margin-top: 4px;">В 64 года нельзя худеть на одних яблоках и кефире — уйдут мышцы и ослабнут ноги. В каждый приём пищи набирайте <b>25–30 г чистого белка</b>.</p>
         </div>
 
-        <div style="background: #f8fafc; border-left: 4px solid var(--prot-color); padding: 1rem; border-radius: 8px;">
-          <h4 style="font-weight: 700; color: var(--text-main); margin-bottom: 4px;">2. Замачивание рассольного сыра (брынзы)</h4>
-          <p>Дагестанские домашние сыры богаты кальцием, но содержат много соли. Лишняя соль провоцирует гипертонию и скрытые отеки (плюс 1.5–2 кг на весах). Нарезайте сыр тонкими ломтиками и вымачивайте в холодной воде 1–2 часа перед едой.</p>
+        <div style="background: #f8fafc; border-left: 5px solid var(--prot-color); padding: 14px; border-radius: 10px;">
+          <strong>2. Вымачивание дагестанского сыра от отёков</strong>
+          <p style="margin-top: 4px;">Домашний рассольный сыр богат кальцием, но задерживает воду и поднимает давление. Нарезайте его пластинами и замачивайте в холодной воде на 1–2 часа перед едой.</p>
         </div>
 
-        <div style="background: #f8fafc; border-left: 4px solid var(--carb-color); padding: 1rem; border-radius: 8px;">
-          <h4 style="font-weight: 700; color: var(--text-main); margin-bottom: 4px;">3. Правило второго бульона для супов</h4>
-          <p>Мясные наваристые бульоны насыщены пуринами и тяжелыми экстрактивными веществами, нагружающими почки и суставы. Доведите говядину или птицу до кипения, варите 5 минут, затем полностью слейте воду, промойте кастрюлю и варите суп на чистой второй воде.</p>
+        <div style="background: #f8fafc; border-left: 5px solid var(--carb-color); padding: 14px; border-radius: 10px;">
+          <strong>3. Супы только на втором бульоне</strong>
+          <p style="margin-top: 4px;">Первый бульон после 5 минут кипения мяса полностью сливайте. Это бережёт суставы (меньше мочевой кислоты) и убирает лишний тугоплавкий жир.</p>
         </div>
 
-        <div style="background: #f8fafc; border-left: 4px solid var(--fat-color); padding: 1rem; border-radius: 8px;">
-          <h4 style="font-weight: 700; color: var(--text-main); margin-bottom: 4px;">4. Урбеч — только без сахара и меда</h4>
-          <p>Традиционный урбеч из темного льна — богатейший источник омега-3 и лигнанов для суставов. Однако магазинный урбеч часто замешивают со сливочным маслом и медом. Для похудения используйте исключительно чистый каменный помол семян: ровно 1 чайная ложка в кашу или с ломтиком цельнозернового хлеба.</p>
+        <div style="background: #f8fafc; border-left: 5px solid var(--fat-color); padding: 14px; border-radius: 10px;">
+          <strong>4. Чистый урбеч без мёда и сахара</strong>
+          <p style="margin-top: 4px;">Выбирайте чистый перетёртый лён, кунжут или абрикосовую косточку без добавления мёда и масла. Достаточно 1 чайной ложки утром.</p>
         </div>
       </div>
     </div>
@@ -889,407 +969,237 @@ h1 {
 
 </main>
 
+<!-- ПЛАВАЮЩАЯ НИЖНЯЯ ПАНЕЛЬ (ВСЕГДА ВИДНА ПРИ ПРОКРУТКЕ) -->
+<div class="bottom-sticky-bar">
+  <div class="mini-metrics">
+    <span class="mini-pill prot-highlight">🍗 Белок: <b id="mini-prot-clean">0.0</b>/28г</span>
+    <span class="mini-pill">🥦 <span id="mini-veg">0</span>г</span>
+    <span class="mini-pill">🌾 <span id="mini-carb">0</span>г</span>
+    <span class="mini-pill">🌰 <span id="mini-fat">0</span>г</span>
+  </div>
+  <button class="up-to-plate-btn" onclick="scrollToPlate()">К тарелке ▲</button>
+</div>
+
 <script>
-// DATABASE: 61 PRODUCTS with full macronutrient profile per standard serving
+// ПОЛНАЯ БАЗА: 61 ПРОДУКТ МАХАЧКАЛЫ / ДАГЕСТАНА С ПОЛНЫМ ПРОФИЛЕМ БЕЛКА
 const productsDB = [
-  // ЖИРЫ / ОРЕХИ / УРБЕЧ (с точным учетом вторичного белка!)
-  {
-    id: 'fat_walnut',
-    name: 'Грецкие орехи (горные)',
-    category: 'fat',
-    categoryName: 'Полезные жиры',
-    portionGrams: 15, // ~3-4 штуки
-    protPerPortion: 2.5,
-    fatPerPortion: 10.0,
-    carbsPerPortion: 1.5,
-    kcal: 100,
-    seasons: ['autumn', 'winter'],
-    desc: '3–4 шт. Дают 10 г полезных жиров и ценные 2.5 г белка для поддержания сосудов и памяти.'
-  },
-  {
-    id: 'fat_flax_urbech',
-    name: 'Льняной урбеч (без сахара)',
-    category: 'fat',
-    categoryName: 'Полезные жиры',
-    portionGrams: 12, // 1 ч.л.
-    protPerPortion: 2.2,
-    fatPerPortion: 5.0,
-    carbsPerPortion: 3.5,
-    kcal: 65,
-    seasons: ['all', 'winter', 'autumn', 'spring'],
-    desc: '1 ч. л. Чемпион по Омега-3 и кальцию для костей. Вносит 2.2 г белка.'
-  },
-  {
-    id: 'fat_pumpkin_seeds',
-    name: 'Тыквенные семечки сушеные',
-    category: 'fat',
-    categoryName: 'Полезные жиры',
-    portionGrams: 15,
-    protPerPortion: 4.5,
-    fatPerPortion: 7.0,
-    carbsPerPortion: 2.0,
-    kcal: 85,
-    seasons: ['autumn', 'winter'],
-    desc: 'Горсть. Рекордсмен по белку среди семян (+4.5 г белка!), богат цинком и магнием.'
-  },
-  {
-    id: 'fat_sesame_urbech',
-    name: 'Кунжутный урбеч',
-    category: 'fat',
-    categoryName: 'Полезные жиры',
-    portionGrams: 12,
-    protPerPortion: 2.1,
-    fatPerPortion: 6.0,
-    carbsPerPortion: 1.5,
-    kcal: 70,
-    seasons: ['all'],
-    desc: '1 ч. л. Концентрат усвояемого кальция для профилактики остеопороза в 64 года.'
-  },
-  {
-    id: 'fat_apricot_urbech',
-    name: 'Урбеч из абрикосовой косточки',
-    category: 'fat',
-    categoryName: 'Полезные жиры',
-    portionGrams: 12,
-    protPerPortion: 2.8,
-    fatPerPortion: 5.5,
-    carbsPerPortion: 2.0,
-    kcal: 68,
-    seasons: ['all'],
-    desc: 'Традиционный горный урбеч с легкой горчинкой. Приятный источник аминокислот.'
-  },
-  {
-    id: 'fat_olive_oil',
-    name: 'Оливковое / льняное масло',
-    category: 'fat',
-    categoryName: 'Полезные жиры',
-    portionGrams: 10, // 1 ст.л.
-    protPerPortion: 0.0,
-    fatPerPortion: 10.0,
-    carbsPerPortion: 0.0,
-    kcal: 90,
-    seasons: ['all'],
-    desc: '1 ст. ложка в салат. Чистый жир без белка, необходим для усвоения витаминов A и E.'
-  },
+  // ================= ОВОЩИ И ЗЕЛЕНЬ (22 позиции) =================
+  { id: 'veg_tomato_derbent', name: 'Томаты грунтовые (дербентские)', category: 'veg', categoryName: 'Овощи', portionGrams: 180, protPerPortion: 1.6, fatPerPortion: 0.4, seasons: ['summer', 'autumn'], desc: 'Спелые мясистые помидоры, богаты ликопином для защиты сердца и сосудов.' },
+  { id: 'veg_cucumber', name: 'Огурцы свежие грунтовые', category: 'veg', categoryName: 'Овощи', portionGrams: 150, protPerPortion: 1.2, fatPerPortion: 0.2, seasons: ['spring', 'summer', 'autumn'], desc: 'Создают объём в желудке и снимают отёчность при минимуме калорий.' },
+  { id: 'veg_cheremsha', name: 'Горная черемша припущенная', category: 'veg', categoryName: 'Овощи', portionGrams: 160, protPerPortion: 3.8, fatPerPortion: 0.2, seasons: ['spring'], desc: 'Весенний дагестанский суперфуд: чистит сосуды и даёт почти 4 г растительного белка.' },
+  { id: 'veg_zucchini', name: 'Кабачки молодые тушёные', category: 'veg', categoryName: 'Овощи', portionGrams: 200, protPerPortion: 2.0, fatPerPortion: 0.4, seasons: ['summer', 'autumn'], desc: 'Нежная клетчатка, мягко стимулирует кишечник и выводит лишнюю воду.' },
+  { id: 'veg_eggplant', name: 'Баклажаны запечённые с чесноком', category: 'veg', categoryName: 'Овощи', portionGrams: 180, protPerPortion: 2.2, fatPerPortion: 0.4, seasons: ['summer', 'autumn'], desc: 'Запечённые в духовке (без обжарки в масле) снижают уровень холестерина.' },
+  { id: 'veg_pumpkin', name: 'Тыква запечённая кусочками', category: 'veg', categoryName: 'Овощи', portionGrams: 180, protPerPortion: 2.0, fatPerPortion: 0.3, seasons: ['autumn', 'winter'], desc: 'Богата бета-каротином для зрения и калием для ровного давления.' },
+  { id: 'veg_sauerkraut', name: 'Квашеная капуста (без сахара)', category: 'veg', categoryName: 'Овощи', portionGrams: 150, protPerPortion: 2.5, fatPerPortion: 0.2, seasons: ['winter', 'autumn', 'spring'], desc: 'Источник витамина С и пробиотиков для здорового пищеварения зимой.' },
+  { id: 'veg_greens_bunch', name: 'Пучок зелени (кинза, реган, укроп)', category: 'veg', categoryName: 'Овощи', portionGrams: 70, protPerPortion: 2.1, fatPerPortion: 0.3, seasons: ['all', 'spring', 'summer', 'autumn'], desc: 'Яркий вкус трав позволяет меньше солить еду, защищая от гипертонии.' },
+  { id: 'veg_bell_pepper', name: 'Перец сладкий грунтовой', category: 'veg', categoryName: 'Овощи', portionGrams: 150, protPerPortion: 1.9, fatPerPortion: 0.2, seasons: ['summer', 'autumn'], desc: 'Рекордсмен по витамину С для укрепления суставов и сосудистой стенки.' },
+  { id: 'veg_cabbage_white', name: 'Капуста белокочанная свежая/тушёная', category: 'veg', categoryName: 'Овощи', portionGrams: 180, protPerPortion: 3.2, fatPerPortion: 0.2, seasons: ['all', 'winter', 'autumn'], desc: 'Доступная круглый год основа тарелки, надолго даёт чувство сытости.' },
+  { id: 'veg_cauliflower', name: 'Цветная капуста на пару', category: 'veg', categoryName: 'Овощи', portionGrams: 180, protPerPortion: 4.2, fatPerPortion: 0.5, seasons: ['autumn', 'summer', 'winter'], desc: 'Легко усваивается в 64 года и содержит более 4 г белка на порцию.' },
+  { id: 'veg_broccoli', name: 'Брокколи припущенная', category: 'veg', categoryName: 'Овощи', portionGrams: 170, protPerPortion: 4.8, fatPerPortion: 0.6, seasons: ['all', 'autumn', 'winter'], desc: 'Содержит сульфорафан и почти 5 г растительного белка для здоровья клеток.' },
+  { id: 'veg_green_beans', name: 'Стручковая фасоль зелёная', category: 'veg', categoryName: 'Овощи', portionGrams: 170, protPerPortion: 4.0, fatPerPortion: 0.3, seasons: ['summer', 'autumn', 'winter'], desc: 'Сытный овощной гарнир, помогает держать стабильный сахар в крови.' },
+  { id: 'veg_spinach', name: 'Шпинат свежий или тушёный', category: 'veg', categoryName: 'Овощи', portionGrams: 120, protPerPortion: 3.5, fatPerPortion: 0.4, seasons: ['spring', 'summer', 'autumn'], desc: 'Листовая зелень для начинок и омлетов, богата фолатами и магнием.' },
+  { id: 'veg_beetroot', name: 'Свёкла отварная или печёная', category: 'veg', categoryName: 'Овощи', portionGrams: 140, protPerPortion: 2.2, fatPerPortion: 0.2, seasons: ['winter', 'autumn', 'all'], desc: 'Улучшает кровоток, мягко поддерживает работу печени и кишечника.' },
+  { id: 'veg_carrot', name: 'Морковь свежая тёртая', category: 'veg', categoryName: 'Овощи', portionGrams: 130, protPerPortion: 1.6, fatPerPortion: 0.2, seasons: ['all', 'autumn', 'winter'], desc: 'Хрустящая клетчатка, отлично сочетается с каплей масла или сметаны.' },
+  { id: 'veg_radish', name: 'Редис весенний с ботвой', category: 'veg', categoryName: 'Овощи', portionGrams: 140, protPerPortion: 1.7, fatPerPortion: 0.2, seasons: ['spring', 'summer'], desc: 'Первые весенние корнеплоды для ускорения обмена веществ.' },
+  { id: 'veg_turnip_radish', name: 'Редька зелёная / маргеланская', category: 'veg', categoryName: 'Овощи', portionGrams: 140, protPerPortion: 2.0, fatPerPortion: 0.2, seasons: ['winter', 'autumn'], desc: 'Зимний корнеплод, стимулирует выработку желчи и переваривание белка.' },
+  { id: 'veg_green_onion', name: 'Зелёный лук и черемшовые стрелки', category: 'veg', categoryName: 'Овощи', portionGrams: 60, protPerPortion: 1.2, fatPerPortion: 0.1, seasons: ['spring', 'summer'], desc: 'Природные фитонциды, традиционная добавка к творогу и блюдам.' },
+  { id: 'veg_sorrel', name: 'Щавель и крапива молодая', category: 'veg', categoryName: 'Овощи', portionGrams: 120, protPerPortion: 3.6, fatPerPortion: 0.3, seasons: ['spring'], desc: 'Весенние дикоросы Дагестана: максимум витамина К и железа.' },
+  { id: 'veg_celery', name: 'Сельдерей (стебли и зелень)', category: 'veg', categoryName: 'Овощи', portionGrams: 130, protPerPortion: 1.4, fatPerPortion: 0.2, seasons: ['all', 'autumn'], desc: 'Обладает мягким мочегонным эффектом, снижает отёчность суставов.' },
+  { id: 'veg_mushrooms', name: 'Шампиньоны запечённые без масла', category: 'veg', categoryName: 'Овощи', portionGrams: 160, protPerPortion: 6.8, fatPerPortion: 1.5, seasons: ['all', 'autumn', 'winter'], desc: 'При минимуме калорий дают почти 7 г дополнительного белка!' },
 
-  // ЗЛАКИ И СЛОЖНЫЕ УГЛЕВОДЫ (с учетом вторичного белка!)
-  {
-    id: 'carb_polba',
-    name: 'Дагестанская полба отварная',
-    category: 'carb',
-    categoryName: 'Сложные злаки',
-    portionGrams: 120,
-    protPerPortion: 5.5,
-    fatPerPortion: 1.0,
-    carbsPerPortion: 26.0,
-    kcal: 140,
-    seasons: ['all', 'autumn', 'winter'],
-    desc: '3–4 ст. л. Древний кавказский злак с низким гликемическим индексом и солидными 5.5 г белка.'
-  },
-  {
-    id: 'carb_buckwheat',
-    name: 'Гречневая каша рассыпчатая',
-    category: 'carb',
-    categoryName: 'Сложные злаки',
-    portionGrams: 120,
-    protPerPortion: 4.5,
-    fatPerPortion: 1.2,
-    carbsPerPortion: 25.0,
-    kcal: 130,
-    seasons: ['all', 'winter'],
-    desc: 'Источник рутина для вен и капилляров, не дает скачков сахара в крови.'
-  },
-  {
-    id: 'carb_bulgur',
-    name: 'Булгур отварной',
-    category: 'carb',
-    categoryName: 'Сложные злаки',
-    portionGrams: 110,
-    protPerPortion: 3.5,
-    fatPerPortion: 0.5,
-    carbsPerPortion: 24.0,
-    kcal: 120,
-    seasons: ['all', 'summer'],
-    desc: 'Сытный гарнир из пропаренной твердой пшеницы, комфортен для пищеварения.'
-  },
-  {
-    id: 'carb_barley',
-    name: 'Перловая крупа отварная',
-    category: 'carb',
-    categoryName: 'Сложные злаки',
-    portionGrams: 120,
-    protPerPortion: 3.2,
-    fatPerPortion: 0.5,
-    carbsPerPortion: 28.0,
-    kcal: 130,
-    seasons: ['autumn', 'winter'],
-    desc: 'Богата фосфором и бета-глюканами, снижающими плохой холестерин.'
-  },
-  {
-    id: 'carb_baked_potato',
-    name: 'Картофель печеный в кожуре',
-    category: 'carb',
-    categoryName: 'Сложные злаки',
-    portionGrams: 120,
-    protPerPortion: 2.4,
-    fatPerPortion: 0.1,
-    carbsPerPortion: 22.0,
-    kcal: 105,
-    seasons: ['all', 'autumn'],
-    desc: '1 небольшая шт. Печеный с кожурой картофель сохраняет калий, важный для сердца.'
-  },
-  {
-    id: 'carb_corn_polenta',
-    name: 'Кукурузная каша (халтама)',
-    category: 'carb',
-    categoryName: 'Сложные злаки',
-    portionGrams: 110,
-    protPerPortion: 2.2,
-    fatPerPortion: 0.8,
-    carbsPerPortion: 23.0,
-    kcal: 115,
-    seasons: ['winter', 'autumn'],
-    desc: 'Традиционная безглютеновая крупяная основа, бережная для желудка.'
-  },
-  {
-    id: 'carb_rye_bread',
-    name: 'Хлеб подовый цельнозерновой',
-    category: 'carb',
-    categoryName: 'Сложные злаки',
-    portionGrams: 40, // 1 ломтик
-    protPerPortion: 3.0,
-    fatPerPortion: 0.5,
-    carbsPerPortion: 18.0,
-    kcal: 90,
-    seasons: ['all'],
-    desc: '1 плотный ломоть. Содержит грубую клетчатку для здоровой моторики кишечника.'
-  },
+  // ================= БЕЛКИ: РЫБА, МЯСО, ТВОРОГ, БОБОВЫЕ (16 позиций) =================
+  { id: 'prot_sudak', name: 'Каспийский судак запечённый', category: 'prot', categoryName: 'Белок', portionGrams: 140, protPerPortion: 27.0, fatPerPortion: 1.5, seasons: ['all', 'autumn', 'winter'], desc: 'Эталонный диетический белок (27 г!): легко усваивается и не перегружает ЖКТ.' },
+  { id: 'prot_trout', name: 'Форель горная радужная', category: 'prot', categoryName: 'Белок', portionGrams: 130, protPerPortion: 25.0, fatPerPortion: 6.5, seasons: ['all', 'spring', 'summer'], desc: 'Местная речная рыба: 25 г белка + полезные Омега-3 жиры для сосудов.' },
+  { id: 'prot_kefal', name: 'Кефаль каспийская в фольге', category: 'prot', categoryName: 'Белок', portionGrams: 140, protPerPortion: 26.5, fatPerPortion: 4.5, seasons: ['autumn', 'winter', 'spring'], desc: 'Свежая морская рыба с сочным мясом, богата йодом и фосфором.' },
+  { id: 'prot_sazan', name: 'Сазан запечённый с лимоном', category: 'prot', categoryName: 'Белок', portionGrams: 135, protPerPortion: 24.0, fatPerPortion: 6.8, seasons: ['autumn', 'winter'], desc: 'Традиционная рыба региона, отлично насыщает на 4–5 часов.' },
+  { id: 'prot_pollock', name: 'Минтай или хек на пару', category: 'prot', categoryName: 'Белок', portionGrams: 150, protPerPortion: 25.5, fatPerPortion: 1.4, seasons: ['all', 'winter'], desc: 'Доступная белая морская рыба с минимальной жирностью.' },
+  { id: 'prot_mackerel', name: 'Скумбрия запечённая (не копчёная)', category: 'prot', categoryName: 'Белок', portionGrams: 120, protPerPortion: 22.0, fatPerPortion: 14.0, seasons: ['all', 'winter'], desc: 'Чемпион по витамину D и Омега-3 (1–2 раза в неделю вместо жирного мяса).' },
+  { id: 'prot_beef_boiled', name: 'Постная говядина (на 2-м бульоне)', category: 'prot', categoryName: 'Белок', portionGrams: 120, protPerPortion: 26.0, fatPerPortion: 8.0, seasons: ['all', 'winter', 'autumn'], desc: 'Главный источник гемового железа и витамина B12 против слабости.' },
+  { id: 'prot_veal', name: 'Телятина отварная / паровая', category: 'prot', categoryName: 'Белок', portionGrams: 125, protPerPortion: 25.0, fatPerPortion: 4.5, seasons: ['all', 'spring'], desc: 'Нежные мясные волокна, перевариваются легче обычной говядины.' },
+  { id: 'prot_turkey', name: 'Филе индейки на пару / котлеты', category: 'prot', categoryName: 'Белок', portionGrams: 130, protPerPortion: 28.0, fatPerPortion: 2.0, seasons: ['all'], desc: 'Лидер по чистому белку (28 г на порцию) при минимальной калорийности.' },
+  { id: 'prot_chicken_breast', name: 'Куриная грудка / бедро без кожи', category: 'prot', categoryName: 'Белок', portionGrams: 130, protPerPortion: 27.0, fatPerPortion: 3.5, seasons: ['all'], desc: 'Универсальный доступный белок для запекания с кавказскими травами.' },
+  { id: 'prot_beef_liver', name: 'Печень говяжья тушёная', category: 'prot', categoryName: 'Белок', portionGrams: 125, protPerPortion: 23.0, fatPerPortion: 4.5, seasons: ['all', 'winter'], desc: 'Концентрат железа, меди и витаминов группы B (1 раз в неделю).' },
+  { id: 'prot_curd', name: 'Домашний творог 5%', category: 'prot', categoryName: 'Белок', portionGrams: 140, protPerPortion: 24.0, fatPerPortion: 7.0, seasons: ['all'], desc: 'Органический кальций для костей и 24 г полноценного молочного белка.' },
+  { id: 'prot_eggs', name: 'Яйца куриные (2 шт. всмятку/омлет)', category: 'prot', categoryName: 'Белок', portionGrams: 110, protPerPortion: 14.0, fatPerPortion: 11.0, seasons: ['all', 'spring'], desc: 'Идеальный утренний белок + лецитин для памяти и работы печени.' },
+  { id: 'prot_soaked_cheese', name: 'Сыр рассольный вымоченный', category: 'prot', categoryName: 'Белок', portionGrams: 50, protPerPortion: 11.0, fatPerPortion: 10.0, seasons: ['all'], desc: 'Вымоченный в воде 2 часа от лишней соли — отличная добавка к яйцам или салату.' },
+  { id: 'prot_red_beans', name: 'Красная фасоль отварная', category: 'prot', categoryName: 'Белок', portionGrams: 130, protPerPortion: 11.0, fatPerPortion: 0.8, seasons: ['winter', 'autumn', 'all'], desc: 'Растительный белок + растворимая клетчатка для плавного снижения веса.' },
+  { id: 'prot_lentils', name: 'Чечевица или нут отварной', category: 'prot', categoryName: 'Белок', portionGrams: 130, protPerPortion: 11.5, fatPerPortion: 1.2, seasons: ['all', 'winter', 'autumn'], desc: 'Сытная бобовая основа, не вызывает резкого подъёма инсулина.' },
 
-  // БЕЛКИ: ОСНОВНЫЕ ИСТОЧНИКИ
-  {
-    id: 'prot_sudak',
-    name: 'Каспийский судак запеченный',
-    category: 'prot',
-    categoryName: 'Качественный белок',
-    portionGrams: 140,
-    protPerPortion: 27.0,
-    fatPerPortion: 1.5,
-    carbsPerPortion: 0.0,
-    kcal: 125,
-    seasons: ['all', 'autumn', 'winter'],
-    desc: 'Диетический эталон: 27 г легкоусвояемого белка без лишнего жира.'
-  },
-  {
-    id: 'prot_trout',
-    name: 'Форель горная радужная',
-    category: 'prot',
-    categoryName: 'Качественный белок',
-    portionGrams: 130,
-    protPerPortion: 25.0,
-    fatPerPortion: 6.5,
-    carbsPerPortion: 0.0,
-    kcal: 160,
-    seasons: ['all', 'spring', 'summer'],
-    desc: 'Местная речная рыба. Обеспечивает норму Омега-3 и полноценный аминокислотный профиль.'
-  },
-  {
-    id: 'prot_beef_boiled',
-    name: 'Постная говядина (2-й бульон)',
-    category: 'prot',
-    categoryName: 'Качественный белок',
-    portionGrams: 120,
-    protPerPortion: 26.0,
-    fatPerPortion: 8.0,
-    carbsPerPortion: 0.0,
-    kcal: 180,
-    seasons: ['all', 'winter'],
-    desc: 'Красное мясо с высоким гемовым железом для профилактики возрастной анемии.'
-  },
-  {
-    id: 'prot_turkey',
-    name: 'Филе индейки на пару',
-    category: 'prot',
-    categoryName: 'Качественный белок',
-    portionGrams: 130,
-    protPerPortion: 28.0,
-    fatPerPortion: 2.0,
-    carbsPerPortion: 0.0,
-    kcal: 135,
-    seasons: ['all'],
-    desc: 'Максимально легко переваривается, практически не содержит насыщенных жиров.'
-  },
-  {
-    id: 'prot_curd',
-    name: 'Домашний творог 5%',
-    category: 'prot',
-    categoryName: 'Качественный белок',
-    portionGrams: 140,
-    protPerPortion: 24.0,
-    fatPerPortion: 7.0,
-    carbsPerPortion: 4.5,
-    kcal: 175,
-    seasons: ['all'],
-    desc: 'Свежий местный творог. Содержит медленный казеин и органический кальций.'
-  },
-  {
-    id: 'prot_eggs',
-    name: 'Яйца куриные отварные/омлет',
-    category: 'prot',
-    categoryName: 'Качественный белок',
-    portionGrams: 110, // 2 яйца
-    protPerPortion: 14.0,
-    fatPerPortion: 11.0,
-    carbsPerPortion: 0.8,
-    kcal: 160,
-    seasons: ['all', 'spring'],
-    desc: '2 яйца. Золотой стандарт биологической ценности, источник лецитина и холина.'
-  },
-  {
-    id: 'prot_soaked_cheese',
-    name: 'Сыр домашний вымоченный',
-    category: 'prot',
-    categoryName: 'Качественный белок',
-    portionGrams: 50,
-    protPerPortion: 11.0,
-    fatPerPortion: 10.0,
-    carbsPerPortion: 0.5,
-    kcal: 140,
-    seasons: ['all'],
-    desc: 'Вымоченный в холодной воде от избытка соли. Добавка кальция без отеков.'
-  },
-  {
-    id: 'prot_red_beans',
-    name: 'Красная фасоль отварная',
-    category: 'prot',
-    categoryName: 'Качественный белок',
-    portionGrams: 140,
-    protPerPortion: 11.0,
-    fatPerPortion: 0.8,
-    carbsPerPortion: 26.0,
-    kcal: 160,
-    seasons: ['winter', 'autumn'],
-    desc: 'Растительный белок + обилие клетчатки для мягкого очищения ЖКТ.'
-  },
+  // ================= СЛОЖНЫЕ УГЛЕВОДЫ И ЗЛАКИ (13 позиций) =================
+  { id: 'carb_polba', name: 'Дагестанская полба отварная', category: 'carb', categoryName: 'Злаки', portionGrams: 120, protPerPortion: 5.5, fatPerPortion: 1.0, seasons: ['all', 'autumn', 'winter'], desc: '3–4 ст. л. Древний злак региона: низкий гликемический индекс и +5.5 г белка!' },
+  { id: 'carb_buckwheat', name: 'Гречневая каша рассыпчатая', category: 'carb', categoryName: 'Злаки', portionGrams: 120, protPerPortion: 4.5, fatPerPortion: 1.2, seasons: ['all', 'winter', 'autumn'], desc: 'Содержит рутин для укрепления сосудов и 4.5 г растительного белка.' },
+  { id: 'carb_bulgur', name: 'Булгур отварной', category: 'carb', categoryName: 'Злаки', portionGrams: 110, protPerPortion: 3.6, fatPerPortion: 0.5, seasons: ['all', 'summer'], desc: 'Крупа из твёрдой пшеницы, прекрасно сочетается с рыбой и овощами.' },
+  { id: 'carb_oats', name: 'Овсянка долгой варки (цельная)', category: 'carb', categoryName: 'Злаки', portionGrams: 130, protPerPortion: 4.2, fatPerPortion: 2.0, seasons: ['all', 'winter', 'spring'], desc: 'Обязательно крупа варки 15–20 минут (не быстрые пакетики!). Бережёт желудок.' },
+  { id: 'carb_barley', name: 'Перловая крупа томлёная', category: 'carb', categoryName: 'Злаки', portionGrams: 120, protPerPortion: 3.3, fatPerPortion: 0.5, seasons: ['autumn', 'winter'], desc: 'Богата бета-глюканами, которые связывают и выводят лишний холестерин.' },
+  { id: 'carb_brown_rice', name: 'Бурый / нешлифованный рис', category: 'carb', categoryName: 'Злаки', portionGrams: 110, protPerPortion: 3.0, fatPerPortion: 0.9, seasons: ['all'], desc: 'Сохраняет оболочку зерна и витамины группы B в отличие от белого риса.' },
+  { id: 'carb_corn_polenta', name: 'Кукурузная каша (халтама)', category: 'carb', categoryName: 'Злаки', portionGrams: 110, protPerPortion: 2.4, fatPerPortion: 0.8, seasons: ['winter', 'autumn'], desc: 'Традиционная согревающая основа без глютена.' },
+  { id: 'carb_millet', name: 'Пшённая каша на воде', category: 'carb', categoryName: 'Злаки', portionGrams: 120, protPerPortion: 3.6, fatPerPortion: 1.1, seasons: ['autumn', 'winter'], desc: 'Отлично сочетается с печёной тыквой, обладает липотропным эффектом.' },
+  { id: 'carb_baked_potato', name: 'Картофель печёный в мундире (1 шт.)', category: 'carb', categoryName: 'Злаки', portionGrams: 120, protPerPortion: 2.5, fatPerPortion: 0.2, seasons: ['all', 'autumn', 'summer'], desc: 'Запечённый в кожуре и слегка охлаждённый картофель даёт полезный крахмал и калий.' },
+  { id: 'carb_rye_bread', name: 'Хлеб подовый цельнозерновой (1 кусок)', category: 'carb', categoryName: 'Злаки', portionGrams: 40, protPerPortion: 3.2, fatPerPortion: 0.6, seasons: ['all'], desc: 'Плотный ломоть хлеба грубого помола к супу или утреннему омлету.' },
+  { id: 'carb_churek_whole', name: 'Домашний чурек из обойной муки', category: 'carb', categoryName: 'Злаки', portionGrams: 45, protPerPortion: 3.8, fatPerPortion: 0.8, seasons: ['all'], desc: 'Небольшой кусочек хлеба из цельнозерновой муки с отрубями.' },
+  { id: 'carb_pasta_durum', name: 'Макароны из твёрдых сортов (аль денте)', category: 'carb', categoryName: 'Злаки', portionGrams: 100, protPerPortion: 4.5, fatPerPortion: 0.6, seasons: ['all'], desc: 'Небольшая порция слегка недоваренных макарон с овощами и рыбой.' },
+  { id: 'carb_crispbread', name: 'Хлебцы ржаные / гречневые (2 шт.)', category: 'carb', categoryName: 'Злаки', portionGrams: 25, protPerPortion: 2.8, fatPerPortion: 0.5, seasons: ['all'], desc: 'Хрустящая основа под творожную намазку с зеленью.' },
 
-  // ОВОЩИ И ЗЕЛЕНЬ
+  // ================= ПОЛЕЗНЫЕ ЖИРЫ, ОРЕХИ И УРБЕЧ (10 позиций) =================
+  { id: 'fat_walnut', name: 'Грецкие орехи горные (3–4 шт.)', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 15, protPerPortion: 2.5, fatPerPortion: 10.0, seasons: ['autumn', 'winter', 'all'], desc: 'Дают 10 г полезных жиров для сосудов и +2.5 г растительного белка.' },
+  { id: 'fat_flax_urbech', name: 'Льняной урбеч без сахара (1 ч. л.)', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 12, protPerPortion: 2.2, fatPerPortion: 5.0, seasons: ['all', 'winter', 'autumn', 'spring'], desc: 'Дагестанский суперфуд: Омега-3 для суставов, лигнаны и +2.2 г белка.' },
+  { id: 'fat_sesame_urbech', name: 'Кунжутный урбеч (1 ч. л.)', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 12, protPerPortion: 2.4, fatPerPortion: 6.0, seasons: ['all'], desc: 'Концентрат кальция для укрепления костей в 64 года + 2.4 г белка.' },
+  { id: 'fat_apricot_urbech', name: 'Урбеч из абрикосовой косточки', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 12, protPerPortion: 2.8, fatPerPortion: 5.5, seasons: ['all', 'autumn'], desc: 'Богат калием и аминокислотами (+2.8 г белка на чайную ложку).' },
+  { id: 'fat_hemp_urbech', name: 'Конопляный урбеч каменного помола', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 12, protPerPortion: 3.6, fatPerPortion: 5.2, seasons: ['all'], desc: 'Рекордсмен среди урбечей по усвояемому растительному белку (+3.6 г).' },
+  { id: 'fat_pumpkin_seeds', name: 'Тыквенные семечки очищенные', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 15, protPerPortion: 4.5, fatPerPortion: 7.0, seasons: ['autumn', 'winter', 'all'], desc: '1 столовая ложка семян добавляет сразу +4.5 г белка, цинк и магний!' },
+  { id: 'fat_almonds', name: 'Миндаль / лесной фундук (10–12 шт.)', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 15, protPerPortion: 3.1, fatPerPortion: 8.5, seasons: ['autumn', 'winter', 'all'], desc: 'Источник витамина Е (молодость кожи и эластичность сосудов) + 3.1 г белка.' },
+  { id: 'fat_flax_seeds', name: 'Семена льна и кунжута в салат', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 12, protPerPortion: 2.3, fatPerPortion: 5.0, seasons: ['all'], desc: 'Посыпка для овощных салатов и творога.' },
+  { id: 'fat_olive_oil', name: 'Масло нерафинированное (1 ст. л.)', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 10, protPerPortion: 0.0, fatPerPortion: 10.0, seasons: ['all'], desc: 'Оливковое, льняное или ароматное подсолнечное масло для заправки овощей.' },
+  { id: 'fat_butter_matsoni', name: 'Сливочное масло 82.5% (1 ч. л.)', category: 'fat', categoryName: 'Жиры и орехи', portionGrams: 8, protPerPortion: 0.1, fatPerPortion: 6.5, seasons: ['all'], desc: 'Небольшой кусочек натурального масла в утреннюю кашу для усвоения витамина А.' }
+];
+
+// 12 ГОТОВЫХ СЕЗОННЫХ РАЦИОНОВ
+const seasonalMenus = [
   {
-    id: 'veg_cheremsha',
-    name: 'Горная черемша припущенная',
-    category: 'veg',
-    categoryName: 'Овощи и зелень',
-    portionGrams: 180,
-    protPerPortion: 3.5,
-    fatPerPortion: 0.2,
-    carbsPerPortion: 7.0,
-    kcal: 45,
-    seasons: ['spring'],
-    desc: 'Весеннее дагестанское чудо: чистит сосуды, укрепляет иммунитет, дает 3.5 г белка.'
+    title: '1. Осенний: Судак с печёной тыквой, полбой и орехами',
+    season: '🍂 Осень (выгодно и сезонно)',
+    items: [
+      { id: 'prot_sudak', text: 'Каспийский судак запечённый (140 г — 27 г белка)' },
+      { id: 'carb_polba', text: 'Дагестанская полба (120 г — 5.5 г белка)' },
+      { id: 'veg_pumpkin', text: 'Тыква запечённая + пучок зелени (220 г)' },
+      { id: 'fat_walnut', text: 'Грецкие орехи (15 г — 2.5 г белка)' }
+    ],
+    note: 'Общий белок: 35 г! Долгая сытость и защита мышц.'
   },
   {
-    id: 'veg_tomato_derbent',
-    name: 'Томаты грунтовые (дербентские)',
-    category: 'veg',
-    categoryName: 'Овощи и зелень',
-    portionGrams: 180,
-    protPerPortion: 1.6,
-    fatPerPortion: 0.4,
-    carbsPerPortion: 7.0,
-    kcal: 40,
-    seasons: ['summer', 'autumn'],
-    desc: 'Сладкие спелые томаты, богатые ликопином для защиты сосудов сердца.'
+    title: '2. Осенний: Постная говядина с баклажанами и гречкой',
+    season: '🍂 Осень (выгодно и сезонно)',
+    items: [
+      { id: 'prot_beef_boiled', text: 'Говядина отварная (120 г — 26 г белка)' },
+      { id: 'carb_buckwheat', text: 'Гречневая каша (120 г — 4.5 г белка)' },
+      { id: 'veg_eggplant', text: 'Баклажаны печёные с томатами (220 г)' },
+      { id: 'fat_flax_urbech', text: 'Льняной урбеч (12 г — 2.2 г белка)' }
+    ],
+    note: 'Общий белок: 34.9 г. Поддержка гемоглобина и сосудов.'
   },
   {
-    id: 'veg_zucchini',
-    name: 'Кабачки молодые тушеные',
-    category: 'veg',
-    categoryName: 'Овощи и зелень',
-    portionGrams: 200,
-    protPerPortion: 2.0,
-    fatPerPortion: 0.4,
-    carbsPerPortion: 8.0,
-    kcal: 45,
-    seasons: ['summer', 'autumn'],
-    desc: 'Прекрасно выводят лишнюю жидкость, мягко стимулируют кишечник.'
+    title: '3. Осенний: Домашний творог с печёным картофелем и семечками',
+    season: '🍂 Осень (выгодно и сезонно)',
+    items: [
+      { id: 'prot_curd', text: 'Творог домашний 5% (140 г — 24 г белка)' },
+      { id: 'carb_baked_potato', text: 'Картофель печёный в мундире (120 г — 2.5 г белка)' },
+      { id: 'veg_cauliflower', text: 'Цветная капуста + зелень (200 г — 4.2 г белка)' },
+      { id: 'fat_pumpkin_seeds', text: 'Тыквенные семечки (15 г — 4.5 г белка)' }
+    ],
+    note: 'Общий белок: 35.2 г. Максимум кальция, калия и цинка.'
   },
   {
-    id: 'veg_pumpkin',
-    name: 'Тыква запеченная со специями',
-    category: 'veg',
-    categoryName: 'Овощи и зелень',
-    portionGrams: 180,
-    protPerPortion: 1.8,
-    fatPerPortion: 0.2,
-    carbsPerPortion: 12.0,
-    kcal: 55,
-    seasons: ['autumn', 'winter'],
-    desc: 'Осенний суперфуд: бета-каротин для зрения и калий для нормализации давления.'
+    title: '4. Зимний: Говядина с перловкой и квашеной капустой',
+    season: '❄️ Зима (выгодно и сезонно)',
+    items: [
+      { id: 'prot_beef_boiled', text: 'Постная говядина (120 г — 26 г белка)' },
+      { id: 'carb_barley', text: 'Перловая крупа томлёная (120 г — 3.3 г белка)' },
+      { id: 'veg_sauerkraut', text: 'Квашеная капуста + свёкла (220 г — 3.5 г белка)' },
+      { id: 'fat_walnut', text: 'Грецкие орехи (15 г — 2.5 г белка)' }
+    ],
+    note: 'Общий белок: 34.3 г. Витамин С и снижение холестерина.'
   },
   {
-    id: 'veg_sauerkraut',
-    name: 'Квашеная капуста (без сахара)',
-    category: 'veg',
-    categoryName: 'Овощи и зелень',
-    portionGrams: 150,
-    protPerPortion: 2.2,
-    fatPerPortion: 0.1,
-    carbsPerPortion: 5.0,
-    kcal: 35,
-    seasons: ['winter'],
-    desc: 'Ферментированный продукт: витамин C и природные пробиотики для микробиоты.'
+    title: '5. Зимний: Каспийская кефаль с кукурузной халтамой',
+    season: '❄️ Зима (выгодно и сезонно)',
+    items: [
+      { id: 'prot_kefal', text: 'Кефаль запечённая в фольге (140 г — 26.5 г белка)' },
+      { id: 'carb_corn_polenta', text: 'Кукурузная каша (110 г — 2.4 г белка)' },
+      { id: 'veg_cabbage_white', text: 'Тушёная капуста с морковью (200 г — 3.2 г белка)' },
+      { id: 'fat_flax_urbech', text: 'Льняной урбеч (12 г — 2.2 г белка)' }
+    ],
+    note: 'Общий белок: 34.3 г. Тёплый зимний обед без отёков.'
   },
   {
-    id: 'veg_greens_bunch',
-    name: 'Большой пучок трав (кинза, реган, укроп)',
-    category: 'veg',
-    categoryName: 'Овощи и зелень',
-    portionGrams: 70,
-    protPerPortion: 2.0,
-    fatPerPortion: 0.3,
-    carbsPerPortion: 3.0,
-    kcal: 25,
-    seasons: ['all', 'spring', 'summer'],
-    desc: 'Снижает потребность в поваренной соли, обогащает калием и антиоксидантами.'
+    title: '6. Зимний: Индейка с гречкой и зелёной редькой',
+    season: '❄️ Зима (выгодно и сезонно)',
+    items: [
+      { id: 'prot_turkey', text: 'Филе индейки на пару (130 г — 28 г белка)' },
+      { id: 'carb_buckwheat', text: 'Гречка рассыпчатая (120 г — 4.5 г белка)' },
+      { id: 'veg_turnip_radish', text: 'Салат из редьки и моркови (200 г — 2 г белка)' },
+      { id: 'fat_olive_oil', text: 'Нерафинированное масло (10 г)' }
+    ],
+    note: 'Общий белок: 34.5 г. Лёгкое переваривание и сытость.'
   },
   {
-    id: 'veg_eggplant',
-    name: 'Баклажаны запеченные с чесноком',
-    category: 'veg',
-    categoryName: 'Овощи и зелень',
-    portionGrams: 180,
-    protPerPortion: 1.8,
-    fatPerPortion: 0.3,
-    carbsPerPortion: 9.0,
-    kcal: 50,
-    seasons: ['summer', 'autumn'],
-    desc: 'Печеные баклажаны без избытка масла выводят холестерин.'
+    title: '7. Весенний: Горная черемша с форелью и полбой',
+    season: '🌱 Весна (выгодно и сезонно)',
+    items: [
+      { id: 'prot_trout', text: 'Горная форель запечённая (130 г — 25 г белка)' },
+      { id: 'carb_polba', text: 'Дагестанская полба (120 г — 5.5 г белка)' },
+      { id: 'veg_cheremsha', text: 'Припущенная черемша + огурец (220 г — 3.8 г белка)' },
+      { id: 'fat_olive_oil', text: 'Масло в салат (10 г)' }
+    ],
+    note: 'Общий белок: 34.3 г. Весеннее обновление сосудов.'
   },
   {
-    id: 'veg_cucumber',
-    name: 'Огурцы свежие грунтовые',
-    category: 'veg',
-    categoryName: 'Овощи и зелень',
-    portionGrams: 150,
-    protPerPortion: 1.0,
-    fatPerPortion: 0.1,
-    carbsPerPortion: 4.5,
-    kcal: 22,
-    seasons: ['summer', 'spring'],
-    desc: 'Легкое увлажнение организма и хрустящая клетчатка без калорий.'
+    title: '8. Весенний: Омлет с вымоченным сыром и пучком трав',
+    season: '🌱 Весна (выгодно и сезонно)',
+    items: [
+      { id: 'prot_eggs', text: 'Омлет из 2 яиц (110 г — 14 г белка)' },
+      { id: 'prot_soaked_cheese', text: 'Вымоченный домашний сыр (50 г — 11 г белка)' },
+      { id: 'carb_rye_bread', text: 'Подовый цельнозерновой хлеб (40 г — 3.2 г белка)' },
+      { id: 'veg_radish', text: 'Редис, шпинат и кинза (200 г — 3.5 г белка)' },
+      { id: 'fat_walnut', text: 'Грецкие орехи (15 г — 2.5 г белка)' }
+    ],
+    note: 'Общий белок: 34.2 г. Сытный завтрак для крепких костей.'
+  },
+  {
+    title: '9. Весенний: Телятина с молодым шпинатом и булгуром',
+    season: '🌱 Весна (выгодно и сезонно)',
+    items: [
+      { id: 'prot_veal', text: 'Телятина отварная (125 г — 25 г белка)' },
+      { id: 'carb_bulgur', text: 'Булгур отварной (110 г — 3.6 г белка)' },
+      { id: 'veg_spinach', text: 'Шпинат, щавель и огурцы (220 г — 3.5 г белка)' },
+      { id: 'fat_sesame_urbech', text: 'Кунжутный урбеч (12 г — 2.4 г белка)' }
+    ],
+    note: 'Общий белок: 34.5 г. Защита от весенней усталости.'
+  },
+  {
+    title: '10. Летний: Дербентские томаты и кабачки с судаком',
+    season: '☀️ Лето (выгодно и сезонно)',
+    items: [
+      { id: 'prot_sudak', text: 'Судак с лимоном и травами (140 г — 27 г белка)' },
+      { id: 'carb_bulgur', text: 'Булгур рассыпчатый (110 г — 3.6 г белка)' },
+      { id: 'veg_tomato_derbent', text: 'Дербентские томаты + кабачки (250 г — 2 г белка)' },
+      { id: 'fat_olive_oil', text: 'Оливковое масло (10 г)' }
+    ],
+    note: 'Общий белок: 32.6 г. Лёгкость в жару и ликопин для сердца.'
+  },
+  {
+    title: '11. Летний: Куриное филе со стручковой фасолью и перцем',
+    season: '☀️ Лето (выгодно и сезонно)',
+    items: [
+      { id: 'prot_chicken_breast', text: 'Куриное филе с травами (130 г — 27 г белка)' },
+      { id: 'carb_polba', text: 'Отварная полба (120 г — 5.5 г белка)' },
+      { id: 'veg_green_beans', text: 'Стручковая фасоль + сладкий перец (220 г — 4 г белка)' },
+      { id: 'fat_flax_seeds', text: 'Семена льна и кунжута (12 г — 2.3 г белка)' }
+    ],
+    note: 'Общий белок: 38.8 г. Максимальная сытость без тяжести.'
+  },
+  {
+    title: '12. Летний: Творог с зеленью, огурцами и абрикосовым урбечем',
+    season: '☀️ Лето (выгодно и сезонно)',
+    items: [
+      { id: 'prot_curd', text: 'Домашний творог 5% (140 г — 24 г белка)' },
+      { id: 'carb_churek_whole', text: 'Цельнозерновой чурек (45 г — 3.8 г белка)' },
+      { id: 'veg_cucumber', text: 'Огурцы + пучок регана и кинзы (220 г — 3.3 г белка)' },
+      { id: 'fat_apricot_urbech', text: 'Абрикосовый урбеч (12 г — 2.8 г белка)' }
+    ],
+    note: 'Общий белок: 33.9 г. Освежающий ужин без включения плиты.'
   }
 ];
 
-// STATE
 let currentPlate = [];
 let currentCategoryFilter = 'all';
 let currentSeasonFilter = 'all';
 
-// TARGETS FOR 64-YEAR-OLD FEMALE (-10kg weight loss):
 const TARGETS = {
   vegGrams: 220,
   protPortionGrams: 130,
   carbGrams: 110,
   fatGrams: 15,
-  targetProteinClean: 28 // Net clean protein in grams per meal
+  targetProteinClean: 28
 };
 
 function initApp() {
@@ -1298,20 +1208,40 @@ function initApp() {
   updatePlateUI();
 }
 
+function toggleInfoBanner() {
+  const body = document.getElementById('banner-body');
+  const arrow = document.getElementById('banner-arrow');
+  if (body.style.display === 'none') {
+    body.style.display = 'block';
+    arrow.innerText = '▼';
+  } else {
+    body.style.display = 'none';
+    arrow.innerText = '▶';
+  }
+}
+
 function switchTab(tabId) {
   document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
   document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-  
+
+  const btns = document.querySelectorAll('.tab-btn');
   if (tabId === 'constructor') {
-    document.querySelectorAll('.tab-btn')[0].classList.add('active');
+    btns[0].classList.add('active');
     document.getElementById('constructor-tab').classList.add('active');
   } else if (tabId === 'seasons') {
-    document.querySelectorAll('.tab-btn')[1].classList.add('active');
+    btns[1].classList.add('active');
     document.getElementById('seasons-tab').classList.add('active');
   } else {
-    document.querySelectorAll('.tab-btn')[2].classList.add('active');
+    btns[2].classList.add('active');
     document.getElementById('guide-tab').classList.add('active');
   }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function scrollToPlate() {
+  switchTab('constructor');
+  const el = document.getElementById('plate-card-anchor');
+  if (el) el.scrollIntoView({ behavior: 'smooth' });
 }
 
 function setSeason(season, btn) {
@@ -1323,17 +1253,18 @@ function setSeason(season, btn) {
 
 function filterByCategory(cat, btn) {
   currentCategoryFilter = cat;
+  const chips = document.querySelectorAll('.cat-chip');
+  chips.forEach(c => c.classList.remove('active'));
+
   if (btn) {
-    document.querySelectorAll('.cat-chip').forEach(c => c.classList.remove('active'));
     btn.classList.add('active');
   } else {
-    document.querySelectorAll('.cat-chip').forEach(c => {
-      c.classList.remove('active');
+    chips.forEach(c => {
       if (cat === 'all' && c.innerText.includes('Все')) c.classList.add('active');
       if (cat === 'veg' && c.innerText.includes('Овощи')) c.classList.add('active');
       if (cat === 'prot' && c.innerText.includes('Белки')) c.classList.add('active');
       if (cat === 'carb' && c.innerText.includes('Злаки')) c.classList.add('active');
-      if (cat === 'fat' && c.innerText.includes('Жиры')) c.classList.add('active');
+      if (cat === 'fat' && c.innerText.includes('Орехи')) c.classList.add('active');
     });
   }
   renderProducts();
@@ -1341,16 +1272,18 @@ function filterByCategory(cat, btn) {
 
 function renderProducts() {
   const container = document.getElementById('products-container');
+  const searchQuery = (document.getElementById('search-input')?.value || '').trim().toLowerCase();
   container.innerHTML = '';
 
   const filtered = productsDB.filter(p => {
     const matchCat = (currentCategoryFilter === 'all') || (p.category === currentCategoryFilter);
     const matchSeason = (currentSeasonFilter === 'all') || p.seasons.includes('all') || p.seasons.includes(currentSeasonFilter);
-    return matchCat && matchSeason;
+    const matchSearch = !searchQuery || p.name.toLowerCase().includes(searchQuery) || p.desc.toLowerCase().includes(searchQuery);
+    return matchCat && matchSeason && matchSearch;
   });
 
   if (filtered.length === 0) {
-    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 2rem; color: #94a3b8;">В этой категории нет продуктов под выбранный сезон.</div>';
+    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 24px; font-size: 1.05rem; color: #64748b;">Продукты не найдены. Попробуйте выбрать «Все категории сразу».</div>';
     return;
   }
 
@@ -1358,37 +1291,47 @@ function renderProducts() {
     const card = document.createElement('div');
     card.className = 'prod-card';
 
-    let badgeClass = 'badge-tag ' + p.category;
-    let badgeLabel = p.categoryName;
-
     card.innerHTML = `
-      <div class="prod-top">
-        <div class="prod-title">${p.name}</div>
-        <span class="${badgeClass}">${badgeLabel}</span>
+      <div>
+        <div class="prod-top">
+          <div class="prod-title">${p.name}</div>
+          <span class="badge-tag ${p.category}">${p.categoryName}</span>
+        </div>
+        <div class="prod-desc" style="margin-top: 6px;">${p.desc}</div>
       </div>
-      <div class="prod-desc">${p.desc}</div>
-      <div class="prod-metric-row">
-        <span class="pill-portion">Порция: ${p.portionGrams} г</span>
-        <span class="pill-protein-bonus">Белок: +${p.protPerPortion} г</span>
-        ${p.fatPerPortion > 4 ? `<span class="pill-fat-bonus">Жир: ${p.fatPerPortion} г</span>` : ''}
+      <div>
+        <div class="prod-metric-row" style="margin-bottom: 10px;">
+          <span class="pill-portion">⚖️ Порция: ${p.portionGrams} г</span>
+          ${p.protPerPortion > 0 ? `<span class="pill-protein-bonus">🍗 Белок: +${p.protPerPortion} г</span>` : ''}
+          ${p.fatPerPortion >= 4 ? `<span class="pill-fat-bonus">🌰 Жир: ${p.fatPerPortion} г</span>` : ''}
+        </div>
+        <button class="add-prod-btn" onclick="addToPlate('${p.id}', this)">
+          <span>＋ Положить в тарелку (${p.portionGrams} г)</span>
+        </button>
       </div>
-      <button class="add-prod-btn" onclick="addToPlate('${p.id}')">
-        <span>+ Положить в тарелку</span>
-      </button>
     `;
     container.appendChild(card);
   });
 }
 
-function addToPlate(productId) {
+function addToPlate(productId, btnEl) {
   const item = productsDB.find(p => p.id === productId);
   if (!item) return;
 
-  // If already in plate, show simple notification
   currentPlate.push({
     ...item,
     instanceId: Date.now() + Math.random()
   });
+
+  if (btnEl) {
+    const oldText = btnEl.innerHTML;
+    btnEl.style.background = '#15803d';
+    btnEl.innerHTML = '✓ Добавлено в тарелку!';
+    setTimeout(() => {
+      btnEl.style.background = '';
+      btnEl.innerHTML = oldText;
+    }, 700);
+  }
 
   updatePlateUI();
 }
@@ -1404,23 +1347,15 @@ function clearPlate() {
 }
 
 function updatePlateUI() {
-  let vegGrams = 0;
-  let protGrams = 0;
-  let carbGrams = 0;
-  let fatGrams = 0;
-
-  let totalCleanProtein = 0;
-  let primaryProtein = 0;
-  let secondaryProtein = 0;
+  let vegGrams = 0, protGrams = 0, carbGrams = 0, fatGrams = 0;
+  let totalCleanProtein = 0, primaryProtein = 0, secondaryProtein = 0;
 
   currentPlate.forEach(item => {
-    // Physical weight per Harvard quadrant
     if (item.category === 'veg') vegGrams += item.portionGrams;
     if (item.category === 'prot') protGrams += item.portionGrams;
     if (item.category === 'carb') carbGrams += item.portionGrams;
     if (item.category === 'fat') fatGrams += item.portionGrams;
 
-    // Cross-category biochemical protein calculation!
     totalCleanProtein += item.protPerPortion;
     if (item.category === 'prot') {
       primaryProtein += item.protPerPortion;
@@ -1429,13 +1364,13 @@ function updatePlateUI() {
     }
   });
 
-  // Update SVG labels
+  // Обновление SVG тарелки
   document.getElementById('svg-veg-grams').innerText = `${vegGrams} / ${TARGETS.vegGrams} г`;
   document.getElementById('svg-prot-grams').innerText = `${protGrams} / ${TARGETS.protPortionGrams} г`;
   document.getElementById('svg-carb-grams').innerText = `${carbGrams} / ${TARGETS.carbGrams} г`;
   document.getElementById('svg-fat-grams').innerText = `${fatGrams} / ${TARGETS.fatGrams} г`;
 
-  // Update Progress Bars
+  // Прогресс-бары
   const vegPct = Math.min(100, Math.round((vegGrams / TARGETS.vegGrams) * 100));
   const protPct = Math.min(100, Math.round((protGrams / TARGETS.protPortionGrams) * 100));
   const carbPct = Math.min(100, Math.round((carbGrams / TARGETS.carbGrams) * 100));
@@ -1451,20 +1386,26 @@ function updatePlateUI() {
   document.getElementById('carb-status-text').innerText = `${carbGrams} / ${TARGETS.carbGrams} г (${carbPct}%)`;
   document.getElementById('fat-status-text').innerText = `${fatGrams} / ${TARGETS.fatGrams} г (${fatPct}%)`;
 
-  // Update Total Protein Thermometer
+  // Термометр чистого белка
   document.getElementById('total-protein-val').innerText = totalCleanProtein.toFixed(1);
   const protCleanPct = Math.min(100, Math.round((totalCleanProtein / TARGETS.targetProteinClean) * 100));
   document.getElementById('protein-progress-bar-fill').style.width = protCleanPct + '%';
 
-  document.getElementById('protein-sources-breakdown').innerHTML = 
-    `Основной (мясо/рыба): <b>${primaryProtein.toFixed(1)} г</b> • Вторичный (орехи/полба): <b>${secondaryProtein.toFixed(1)} г</b>`;
+  document.getElementById('protein-sources-breakdown').innerHTML =
+    `Из мяса/рыбы/творога: <b>${primaryProtein.toFixed(1)} г</b> • Из орехов/полбы/овощей: <b>${secondaryProtein.toFixed(1)} г</b>`;
 
-  // Render list of selected items
+  // Нижняя плавающая панель
+  document.getElementById('mini-prot-clean').innerText = totalCleanProtein.toFixed(1);
+  document.getElementById('mini-veg').innerText = vegGrams;
+  document.getElementById('mini-carb').innerText = carbGrams;
+  document.getElementById('mini-fat').innerText = fatGrams;
+
+  // Список выбранных продуктов
   const list = document.getElementById('plate-items-list');
   list.innerHTML = '';
 
   if (currentPlate.length === 0) {
-    list.innerHTML = '<li style="color: var(--text-muted); font-size: 0.82rem; font-style: italic;">Нажмите на любой продукт справа, чтобы добавить его в тарелку</li>';
+    list.innerHTML = '<li style="color: var(--text-muted); font-size: 0.95rem;">Пока пусто — выберите продукты в списке ниже 👇</li>';
     return;
   }
 
@@ -1472,173 +1413,15 @@ function updatePlateUI() {
     const li = document.createElement('li');
     li.className = 'selected-item';
     li.innerHTML = `
-      <div class="item-left">
+      <div>
         <span class="item-name">${item.name}</span>
-        <span class="item-nutrients">${item.portionGrams} г • Белок: +${item.protPerPortion} г • Жир: ${item.fatPerPortion} г</span>
+        <span class="item-nutrients">Вес: ${item.portionGrams} г • Белок: +${item.protPerPortion} г • Жир: ${item.fatPerPortion} г</span>
       </div>
-      <button class="remove-tag-btn" onclick="removeFromPlate(${item.instanceId})" title="Удалить">✕</button>
+      <button class="remove-tag-btn" onclick="removeFromPlate(${item.instanceId})" title="Убрать">✕</button>
     `;
     list.appendChild(li);
   });
 }
-
-// 12 READY MENUS WITH NUTRITIONAL ACCENTS
-const seasonalMenus = [
-  // ОСЕНЬ
-  {
-    title: 'Осенний: Запеченный судак с тыквой и полбой',
-    season: '🍂 Осень в Махачкале',
-    seasonKey: 'autumn',
-    items: [
-      { id: 'prot_sudak', text: 'Каспийский судак запеченный (140 г — 27 г белка)' },
-      { id: 'carb_polba', text: 'Дагестанская полба (120 г — 5.5 г белка)' },
-      { id: 'veg_pumpkin', text: 'Тыква запеченная со специями (180 г)' },
-      { id: 'fat_walnut', text: 'Грецкие орехи (15 г — 2.5 г белка)' }
-    ],
-    note: 'Итого белка: 35 г! Идеальное насыщение при минимуме калорий.'
-  },
-  {
-    title: 'Осенний: Тушеная говядина с баклажанами и гречкой',
-    season: '🍂 Осень в Махачкале',
-    seasonKey: 'autumn',
-    items: [
-      { id: 'prot_beef_boiled', text: 'Постная говядина на 2-м бульоне (120 г — 26 г белка)' },
-      { id: 'carb_buckwheat', text: 'Гречневая каша (120 г — 4.5 г белка)' },
-      { id: 'veg_eggplant', text: 'Баклажаны запеченные (180 г)' },
-      { id: 'fat_flax_urbech', text: 'Льняной урбеч без сахара (12 г — 2.2 г белка)' }
-    ],
-    note: 'Итого белка: 32.7 г. Профилактика анемии и защита суставов.'
-  },
-  {
-    title: 'Осенний: Творожный обед с тыквенными семечками',
-    season: '🍂 Осень в Махачкале',
-    seasonKey: 'autumn',
-    items: [
-      { id: 'prot_curd', text: 'Творог 5% (140 г — 24 г белка)' },
-      { id: 'carb_baked_potato', text: 'Печеный картофель в мундире (120 г — 2.4 г белка)' },
-      { id: 'veg_greens_bunch', text: 'Свежая зелень и огурец (150 г)' },
-      { id: 'fat_pumpkin_seeds', text: 'Тыквенные семечки (15 г — 4.5 г белка)' }
-    ],
-    note: 'Итого белка: 31 г. Кальций и цинк для плотности костной ткани.'
-  },
-
-  // ЗИМА
-  {
-    title: 'Зимний: Говядина с фасолью и квашеной капустой',
-    season: '❄️ Зима в Махачкале',
-    seasonKey: 'winter',
-    items: [
-      { id: 'prot_beef_boiled', text: 'Отварная говядина (120 г — 26 г белка)' },
-      { id: 'carb_barley', text: 'Перловая крупа (120 г — 3.2 г белка)' },
-      { id: 'veg_sauerkraut', text: 'Квашеная капуста без сахара (150 г)' },
-      { id: 'fat_walnut', text: 'Грецкие орехи (15 г — 2.5 г белка)' }
-    ],
-    note: 'Итого белка: 32 г. Природный витамин C и пробиотики для кишечника.'
-  },
-  {
-    title: 'Зимний: Каспийский судак с кукурузной халтамой',
-    season: '❄️ Зима в Махачкале',
-    seasonKey: 'winter',
-    items: [
-      { id: 'prot_sudak', text: 'Судак на пару с лимоном (140 г — 27 г белка)' },
-      { id: 'carb_corn_polenta', text: 'Кукурузная каша (110 г — 2.2 г белка)' },
-      { id: 'veg_pumpkin', text: 'Тыква тушеная с чесноком (180 г)' },
-      { id: 'fat_flax_urbech', text: 'Льняной урбеч (12 г — 2.2 г белка)' }
-    ],
-    note: 'Итого белка: 31.4 г. Безглютеновый легкий ужин без отеков.'
-  },
-  {
-    title: 'Зимний: Теплый фасолевый обед с индейкой',
-    season: '❄️ Зима в Махачкале',
-    seasonKey: 'winter',
-    items: [
-      { id: 'prot_turkey', text: 'Филе индейки запеченное (130 г — 28 г белка)' },
-      { id: 'carb_buckwheat', text: 'Гречка отварная (120 г — 4.5 г белка)' },
-      { id: 'veg_sauerkraut', text: 'Квашеная капуста (150 г)' },
-      { id: 'fat_pumpkin_seeds', text: 'Тыквенные семечки (15 г — 4.5 г белка)' }
-    ],
-    note: 'Итого белка: 37 г. Мощная защита мышечной массы в холодный сезон.'
-  },
-
-  // ВЕСНА
-  {
-    title: 'Весенний: Молодая черемша с горной форелью и полбой',
-    season: '🌱 Весна в Махачкале',
-    seasonKey: 'spring',
-    items: [
-      { id: 'prot_trout', text: 'Горная форель на гриле (130 г — 25 г белка)' },
-      { id: 'carb_polba', text: 'Дагестанская полба (120 г — 5.5 г белка)' },
-      { id: 'veg_cheremsha', text: 'Горная черемша припущенная (180 г — 3.5 г белка)' },
-      { id: 'fat_olive_oil', text: 'Оливковое масло (10 г)' }
-    ],
-    note: 'Итого белка: 34 г. Черемша дает редкий растительный белок и фитонциды.'
-  },
-  {
-    title: 'Весенний: Омлет с пучком трав и подовым хлебом',
-    season: '🌱 Весна в Махачкале',
-    seasonKey: 'spring',
-    items: [
-      { id: 'prot_eggs', text: 'Омлет из 2 яиц (110 г — 14 г белка)' },
-      { id: 'prot_soaked_cheese', text: 'Вымоченный сыр (50 г — 11 г белка)' },
-      { id: 'carb_rye_bread', text: 'Подовый хлеб (40 г — 3 г белка)' },
-      { id: 'veg_greens_bunch', text: 'Кинза, укроп, огурец (150 г)' },
-      { id: 'fat_walnut', text: 'Грецкие орехи (15 г — 2.5 г белка)' }
-    ],
-    note: 'Итого белка: 30.5 г. Сбалансированный традиционный завтрак.'
-  },
-  {
-    title: 'Весенний: Индейка со спаржевой фасолью и булгуром',
-    season: '🌱 Весна в Махачкале',
-    seasonKey: 'spring',
-    items: [
-      { id: 'prot_turkey', text: 'Индейка на пару (130 г — 28 г белка)' },
-      { id: 'carb_bulgur', text: 'Булгур отварной (110 г — 3.5 г белка)' },
-      { id: 'veg_cheremsha', text: 'Черемша и зелень (180 г — 3.5 г белка)' },
-      { id: 'fat_sesame_urbech', text: 'Кунжутный урбеч (12 г — 2.1 г белка)' }
-    ],
-    note: 'Итого белка: 37 г. Ударная доза кальция и аминокислот.'
-  },
-
-  // ЛЕТО
-  {
-    title: 'Летний: Кабачки и дербентские томаты с судаком',
-    season: '☀️ Лето в Махачкале',
-    seasonKey: 'summer',
-    items: [
-      { id: 'prot_sudak', text: 'Судак с лимоном (140 г — 27 г белка)' },
-      { id: 'carb_bulgur', text: 'Булгур (110 г — 3.5 г белка)' },
-      { id: 'veg_tomato_derbent', text: 'Дербентские томаты (180 г)' },
-      { id: 'veg_zucchini', text: 'Кабачки на гриле (100 г)' },
-      { id: 'fat_olive_oil', text: 'Оливковое масло (10 г)' }
-    ],
-    note: 'Итого белка: 31 г. Максимальная сочность и легкость без задержки воды.'
-  },
-  {
-    title: 'Летний: Форель на решетке с баклажанами и полбой',
-    season: '☀️ Лето в Махачкале',
-    seasonKey: 'summer',
-    items: [
-      { id: 'prot_trout', text: 'Форель речная (130 г — 25 г белка)' },
-      { id: 'carb_polba', text: 'Кавказская полба (120 г — 5.5 г белка)' },
-      { id: 'veg_eggplant', text: 'Баклажаны запеченные (180 г)' },
-      { id: 'fat_walnut', text: 'Грецкие орехи (15 г — 2.5 г белка)' }
-    ],
-    note: 'Итого белка: 33 г. Полноценный ужин для активного сжигания жира.'
-  },
-  {
-    title: 'Летний: Холодный мацони-творог с огурцом и зеленью',
-    season: '☀️ Лето в Махачкале',
-    seasonKey: 'summer',
-    items: [
-      { id: 'prot_curd', text: 'Домашний творог 5% (140 г — 24 г белка)' },
-      { id: 'carb_rye_bread', text: 'Цельнозерновой хлеб (40 г — 3 г белка)' },
-      { id: 'veg_cucumber', text: 'Грунтовые огурцы (150 г)' },
-      { id: 'veg_greens_bunch', text: 'Базилик и укроп (50 г)' },
-      { id: 'fat_flax_urbech', text: 'Льняной урбеч (12 г — 2.2 г белка)' }
-    ],
-    note: 'Итого белка: 29.2 г. Освежает в жару, сохраняя сытость на 4–5 часов.'
-  }
-];
 
 function renderMenus() {
   const container = document.getElementById('menus-container');
@@ -1647,18 +1430,15 @@ function renderMenus() {
   seasonalMenus.forEach((m, idx) => {
     const card = document.createElement('div');
     card.className = 'menu-card';
-
-    let listHtml = m.items.map(i => `<li><span>•</span> ${i.text}</li>`).join('');
+    const listHtml = m.items.map(i => `<li>• <b>${i.text}</b></li>`).join('');
 
     card.innerHTML = `
-      <div class="menu-season-badge" style="background: #e0f2f1; color: #00796b;">${m.season}</div>
+      <div class="menu-season-badge">${m.season}</div>
       <div class="menu-title">${m.title}</div>
       <ul class="menu-composition">${listHtml}</ul>
-      <div style="font-size: 0.78rem; font-weight: 600; color: #00796b; background: #f0fdfa; padding: 6px 10px; border-radius: 8px;">
-        💡 ${m.note}
-      </div>
+      <div class="menu-note">💡 ${m.note}</div>
       <button class="load-menu-btn" onclick="loadMenuToPlate(${idx})">
-        Загрузить это меню в тарелку ➔
+        Загрузить этот рацион в тарелку ➔
       </button>
     `;
     container.appendChild(card);
@@ -1668,20 +1448,14 @@ function renderMenus() {
 function loadMenuToPlate(menuIdx) {
   const m = seasonalMenus[menuIdx];
   if (!m) return;
-
   clearPlate();
-
   m.items.forEach(it => {
     const p = productsDB.find(prod => prod.id === it.id);
     if (p) {
-      currentPlate.push({
-        ...p,
-        instanceId: Date.now() + Math.random()
-      });
+      currentPlate.push({ ...p, instanceId: Date.now() + Math.random() });
     }
   });
-
-  switchTab('constructor');
+  scrollToPlate();
   updatePlateUI();
 }
 
