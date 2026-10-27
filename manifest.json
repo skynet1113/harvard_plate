@@ -1,7 +1,9 @@
 {
+  "id": "/harvard_plate/",
   "name": "Тарелка Здоровья 64+",
   "short_name": "Тарелка 64+",
-  "start_url": "./index.html",
+  "start_url": "/harvard_plate/",
+  "scope": "/harvard_plate/",
   "display": "standalone",
   "background_color": "#fdfbf7",
   "theme_color": "#004d40",
