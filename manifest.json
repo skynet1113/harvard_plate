@@ -1,20 +1,20 @@
 {
-  "id": "/harvard_plate/",
+  "id": "/harvard_plate/v2",
   "name": "Тарелка Здоровья 64+",
   "short_name": "Тарелка 64+",
-  "start_url": "/harvard_plate/",
+  "start_url": "/harvard_plate/index.html?v=2",
   "scope": "/harvard_plate/",
   "display": "standalone",
   "background_color": "#fdfbf7",
   "theme_color": "#004d40",
   "icons": [
     {
-      "src": "icon-192.png",
+      "src": "/harvard_plate/icon-192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "icon-512.png",
+      "src": "/harvard_plate/icon-512.png",
       "sizes": "512x512",
       "type": "image/png"
     }
